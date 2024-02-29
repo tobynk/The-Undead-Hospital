@@ -30,5 +30,6 @@ func _on_area_entered(area):
 
 func _on_area_exited(area):
 	NPCtalk = 0
+	print("left")
 	
 
