@@ -1,5 +1,6 @@
 extends Area2D
 @export var speed = 400 
+var NPCtalk = 0
 
 func _process(delta):
 	var velocity = Vector2.ZERO 
@@ -14,3 +15,20 @@ func _process(delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	position += velocity * delta
+	Interacted_with_NPC()
+	
+
+func Interacted_with_NPC():
+	if NPCtalk == 1 and Input.is_action_just_pressed("Interacted"):
+		print("it works") 
+
+
+func _on_area_entered(area):
+	NPCtalk = 1
+	print("enter")
+
+
+func _on_area_exited(area):
+	NPCtalk = 0
+	
+
