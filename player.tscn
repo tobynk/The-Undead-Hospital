@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwtkel5ufm551"]
+[gd_scene load_steps=4 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
@@ -6,15 +6,17 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51ew0"]
 size = Vector2(133, 129)
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource("1_c3ly3")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_c4x42")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_51ew0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_c4x42")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]
