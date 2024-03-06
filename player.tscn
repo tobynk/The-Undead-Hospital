@@ -15,8 +15,3 @@ shape = SubResource("RectangleShape2D_51ew0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_c4x42")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="area_exited" from="." to="." method="_on_area_exited"]
