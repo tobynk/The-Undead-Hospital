@@ -6,7 +6,10 @@
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_kw1v4")]
-position = Vector2(1007, 334)
+position = Vector2(616, 120)
 
 [node name="NPC 1" parent="." instance=ExtResource("2_juef1")]
 position = Vector2(323, 354)
+
+[node name="NPC 2" parent="." instance=ExtResource("2_juef1")]
+position = Vector2(1094, 323)
