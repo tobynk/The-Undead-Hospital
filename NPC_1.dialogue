@@ -1,0 +1,9 @@
+~ NPC_1
+
+if Global.talked_to_NPC_1 == false
+	NPC_1: hi welcome to the hospial 
+	~talk1
+	~talk2
+	~talk3
+
+=> END

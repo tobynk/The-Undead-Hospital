@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://5kjq08tr4k4w"
+path="res://.godot/imported/NPC_1.dialogue-9005d7b3e5b4aae629e2a3f1b2b8022c.tres"
+
+[deps]
+
+source_file="res://NPC_1.dialogue"
+dest_files=["res://.godot/imported/NPC_1.dialogue-9005d7b3e5b4aae629e2a3f1b2b8022c.tres"]
+
+[params]
+
+defaults=true
