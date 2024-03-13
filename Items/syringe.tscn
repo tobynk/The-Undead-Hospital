@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cptrvy82fmdty"]
+
+[ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="1_ofile"]
+
+[node name="Syringe" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ofile")

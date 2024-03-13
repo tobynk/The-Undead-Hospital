@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://4fgp1qg3o0ft"]
+[gd_scene load_steps=4 format=3 uid="uid://4fgp1qg3o0ft"]
 
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_kw1v4"]
 [ext_resource type="PackedScene" uid="uid://d3kncurjapstq" path="res://npc_1.tscn" id="2_juef1"]
+[ext_resource type="PackedScene" uid="uid://del5bg47rnfcv" path="res://Weapons.tscn" id="3_o8ymk"]
 
 [node name="Main" type="Node2D"]
 
@@ -13,3 +14,18 @@ position = Vector2(323, 354)
 
 [node name="NPC 2" parent="." instance=ExtResource("2_juef1")]
 position = Vector2(1094, 323)
+
+[node name="Weapons2" parent="." instance=ExtResource("3_o8ymk")]
+position = Vector2(1413, 561)
+Weapon = 2
+
+[node name="Weapons" parent="." instance=ExtResource("3_o8ymk")]
+position = Vector2(570, 549)
+
+[node name="Weapons3" parent="." instance=ExtResource("3_o8ymk")]
+position = Vector2(710, 320)
+Weapon = 3
+
+[node name="Weapons4" parent="." instance=ExtResource("3_o8ymk")]
+position = Vector2(876, 550)
+Weapon = 4

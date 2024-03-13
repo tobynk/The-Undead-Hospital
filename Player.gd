@@ -1,6 +1,17 @@
 extends Area2D
 @export var speed = 400 
+@onready var bonesaw = $CanvasLayer/ColorRect/bonesaw
+@onready var gun = $CanvasLayer/ColorRect/gun
+@onready var scalpel = $CanvasLayer/ColorRect/Scalpel
+@onready var syringe = $CanvasLayer/ColorRect/Syringe
 
+@onready var HaveBoneSaw = false
+@onready var HaveGun = false
+@onready var HaveScalpel = false
+@onready var HaveSyringe = false
+
+func _ready():
+	TurnInventoryItemOff()
 
 func _process(delta):
 	var velocity = Vector2.ZERO 
@@ -16,7 +27,10 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 	position += velocity * delta
 
- 
-
+func TurnInventoryItemOff():
+	bonesaw.hide()
+	gun.hide()
+	scalpel.hide()
+	syringe.hide()
 
 

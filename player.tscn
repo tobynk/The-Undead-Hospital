@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=8 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
+[ext_resource type="PackedScene" uid="uid://d3equtqla30sk" path="res://Items/bonesaw.tscn" id="3_4wm03"]
+[ext_resource type="PackedScene" uid="uid://bwdkxqedr3ka" path="res://Items/gun.tscn" id="4_88ulq"]
+[ext_resource type="PackedScene" uid="uid://d4c1bwtkj12kp" path="res://Items/scalpel.tscn" id="5_jqjn6"]
+[ext_resource type="PackedScene" uid="uid://cptrvy82fmdty" path="res://Items/syringe.tscn" id="6_pqd8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51ew0"]
 size = Vector2(133, 129)
@@ -10,6 +14,7 @@ size = Vector2(133, 129)
 script = ExtResource("1_c3ly3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 7
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_51ew0")
 
@@ -26,9 +31,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -368.0
-offset_top = -124.0
-offset_right = 369.0
-offset_bottom = -27.0
+offset_left = -655.0
+offset_top = -200.0
+offset_right = 788.0
+offset_bottom = -23.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.994183, 0.972861)
+
+[node name="bonesaw" parent="CanvasLayer/ColorRect" instance=ExtResource("3_4wm03")]
+position = Vector2(96, 90)
+
+[node name="gun" parent="CanvasLayer/ColorRect" instance=ExtResource("4_88ulq")]
+position = Vector2(534.107, 90)
+
+[node name="Scalpel" parent="CanvasLayer/ColorRect" instance=ExtResource("5_jqjn6")]
+position = Vector2(979.699, 90)
+
+[node name="Syringe" parent="CanvasLayer/ColorRect" instance=ExtResource("6_pqd8l")]
+position = Vector2(1341.81, 90)

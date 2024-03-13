@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwdkxqedr3ka"]
+
+[ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="1_c1g1i"]
+
+[node name="gun" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_c1g1i")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -31.0
+offset_top = -63.0
+offset_right = 27.0
+offset_bottom = -40.0
+text = "gun"
+metadata/_edit_use_anchors_ = true
