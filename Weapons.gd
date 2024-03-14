@@ -6,18 +6,16 @@ extends Node2D
 @onready var bonesaw = $Node2D/bonesaw
 @onready var gun = $Node2D/Gun
 
-signal WeaponPickedUp(WeaponNumber)
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ReaderSprite()
+	RenderSprite()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
 
-func ReaderSprite():
+func RenderSprite():
 	if Weapon == 1:
 		syringe.show()
 	elif Weapon == 2:
@@ -30,5 +28,8 @@ func ReaderSprite():
 		return
 
 
+
+
+
 func _on_area_entered(area):
-	emit_signal("WeaponPickedUp",Weapon)
+	queue_free()

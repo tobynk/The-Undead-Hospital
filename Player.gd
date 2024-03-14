@@ -1,22 +1,19 @@
 extends Area2D
 @export var speed = 400 
-@onready var bonesaw = $CanvasLayer/ColorRect/bonesaw
-@onready var gun = $CanvasLayer/ColorRect/gun
-@onready var scalpel = $CanvasLayer/ColorRect/Scalpel
-@onready var syringe = $CanvasLayer/ColorRect/Syringe
+@onready var bonesaw = $CanvasLayer/bonesaw
+@onready var gun = $CanvasLayer/Gun
+@onready var scalpel = $CanvasLayer/scaple
+@onready var syringe = $CanvasLayer/Syringe
 
 @onready var HaveBoneSaw = false
 @onready var HaveGun = false
 @onready var HaveScalpel = false
 @onready var HaveSyringe = false
 
-@onready var ItemNode = get_node("res://Weapons.gd")
-
 func _ready():
 	TurnInventoryItemOff()
 
 func _process(delta):
-	ItemNode.connect("WeaponPickedUp",self, Test())
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -37,7 +34,25 @@ func TurnInventoryItemOff():
 	scalpel.hide()
 	syringe.hide()
 
-func Test():
-	pass
+func Update_Inventory_System_Item():
+	if HaveBoneSaw:
+		bonesaw.show()
+	if  HaveGun:
+		gun.show()
+	if  HaveScalpel:
+		scalpel.show()
+	if  HaveSyringe == true:
+		syringe.show()
+	else:
+		return
 
-
+func _on_area_entered(area):
+	if area.Weapon == 1:
+		HaveSyringe = true
+	if area.Weapon == 2:
+		HaveScalpel = true
+	if area.Weapon == 3:
+		HaveBoneSaw = true
+	if area.Weapon == 4:
+		HaveGun = true
+	Update_Inventory_System_Item()
