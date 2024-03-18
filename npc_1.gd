@@ -5,6 +5,7 @@ extends Area2D
 
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	label.hide()
@@ -12,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if PlayerInArea && Input.is_action_just_pressed("interacted"):
+	if PlayerInArea && Input.is_action_just_pressed("Interacted"):
 		DialogueManager.show_example_dialogue_balloon(load("res://NPC_1.dialogue"),"Start")
 		
 	

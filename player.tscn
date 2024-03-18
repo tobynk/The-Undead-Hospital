@@ -21,7 +21,7 @@ texture = ExtResource("2_c4x42")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ItemBar" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -34,6 +34,38 @@ offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.994183, 0.972861)
+
+[node name="Item1" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 272.0
+offset_top = 892.0
+offset_right = 432.0
+offset_bottom = 1049.0
+color = Color(0, 0, 0, 1)
+
+[node name="Item2" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 667.0
+offset_top = 895.0
+offset_right = 827.0
+offset_bottom = 1052.0
+color = Color(0, 0, 0, 1)
+
+[node name="Item3" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 1070.0
+offset_top = 895.0
+offset_right = 1230.0
+offset_bottom = 1052.0
+color = Color(0, 0, 0, 1)
+
+[node name="Item4" type="ColorRect" parent="CanvasLayer"]
+visible = false
+offset_left = 1469.0
+offset_top = 894.0
+offset_right = 1629.0
+offset_bottom = 1051.0
+color = Color(0, 0, 0, 1)
 
 [node name="Syringe" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(350, 970)
