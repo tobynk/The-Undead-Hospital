@@ -166,4 +166,14 @@ size_flags_horizontal = 4
 text = "1000"
 label_settings = SubResource("LabelSettings_4wmjl")
 
+[node name="Testbale for thing" type="Label" parent="CanvasLayer"]
+offset_left = 14.0
+offset_top = 192.0
+offset_right = 222.0
+offset_bottom = 244.0
+text = "5"
+
+[node name="Killing Timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -10,11 +10,6 @@ extends Node2D
 func _ready():
 	RenderSprite()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 func RenderSprite():
 	if Weapon == 1:
 		syringe.show()

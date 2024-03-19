@@ -24,16 +24,25 @@ extends Area2D
 
 @onready var hearts_level = $CanvasLayer/HeartsLevel
 
+@onready var killing_timer = $"Killing Timer"
+
 var Hearts = 3
 var HeartsHealth = 10
 
 var ItemInHand = 1
+
+var InRangeWithEnemy = false
+var DamageFromEnemy= 0
+@onready var testbale_for_thing = $"CanvasLayer/Testbale for thing"
+
 
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()
 
 func _process(delta):
+	testbale_for_thing.text=(str(killing_timer.time_left))
+	RunDamage()
 	hearts_level.text = (str(HeartsHealth))
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
@@ -104,16 +113,28 @@ func _on_area_entered(area):
 		if area.Weapon == 4:
 			HaveGun = true
 		Update_Inventory_System_Item()
-	if area.is_in_group("test"):
-		print("test 1")  
 	if area.is_in_group("Enemy"):
-		DealDamage(area.Damage)
+		InRangeWithEnemy = true  
+		DamageFromEnemy = area.Damage
+		killing_timer.start()
 
+func RunDamage():
+	if InRangeWithEnemy:
+		print("in range to do damage")
+		if killing_timer.time_left <  0.0:
+			print("timer works")
+			DealDamage(DamageFromEnemy)
+			print(DamageFromEnemy)
+			killing_timer.start(1)
+		else:
+			print("timer not working")
+		
 func LossHeart():
 	if HeartsHealth <= 0:
 		Hearts -=1 
 		print(Hearts)
 		UpdateHearts()
+		HeartsHealth = 10
 	else:
 		UpdateHearts()
 		return
@@ -130,7 +151,11 @@ func DealDamage(DamageDelt):
 	LossHeart()
 
 func  UpdateHearts():
-	if Hearts == 1:
+	if Hearts ==1:
+		hearts.hide()
+		hearts_2.hide()
+		hearts_3.hide()
+	elif Hearts == 1:
 		hearts.show()
 		hearts_2.hide()
 		hearts_3.hide()
