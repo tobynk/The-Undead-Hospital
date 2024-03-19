@@ -1,27 +1,40 @@
 extends Area2D
 @export var speed = 400 
-@onready var bonesaw = $CanvasLayer/bonesaw
-@onready var gun = $CanvasLayer/Gun
-@onready var scalpel = $CanvasLayer/scaple
-@onready var syringe = $CanvasLayer/Syringe
+@onready var syringe = $"CanvasLayer/Item Bar/Syringe"
+@onready var scaple = $"CanvasLayer/Item Bar/scaple"
+@onready var bonesaw = $"CanvasLayer/Item Bar/bonesaw"
+@onready var gun = $"CanvasLayer/Item Bar/Gun"
+
 
 @onready var HaveBoneSaw = false
 @onready var HaveGun = false
 @onready var HaveScalpel = false
 @onready var HaveSyringe = false
 
-@onready var item_1 = $CanvasLayer/Item1
-@onready var item_2 = $CanvasLayer/Item2
-@onready var item_3 = $CanvasLayer/Item3
-@onready var item_4 = $CanvasLayer/Item4
+@onready var item_1 = $"CanvasLayer/Item Bar/Item1"
+@onready var item_2 = $"CanvasLayer/Item Bar/Item2"
+@onready var item_3 = $"CanvasLayer/Item Bar/Item3"
+@onready var item_4 = $"CanvasLayer/Item Bar/Item4"
 
+@onready var hearts = $CanvasLayer/Hearts/Hearts
+@onready var hearts_2 = $CanvasLayer/Hearts/Hearts2
+@onready var hearts_3 = $CanvasLayer/Hearts/Hearts3
 
-@onready var ItemInHand = 1
+@onready var damage_label = $CanvasLayer/DamageLabel
+
+@onready var hearts_level = $CanvasLayer/HeartsLevel
+
+var Hearts = 3
+var HeartsHealth = 10
+
+var ItemInHand = 1
 
 func _ready():
 	TurnInventoryItemOff()
+	UpdateHearts()
 
 func _process(delta):
+	hearts_level.text = (str(HeartsHealth))
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
 	var velocity = Vector2.ZERO 
@@ -41,7 +54,7 @@ func _process(delta):
 func TurnInventoryItemOff():
 	bonesaw.hide()
 	gun.hide()
-	scalpel.hide()
+	scaple.hide()
 	syringe.hide()
 
 func Update_Item_in_hand():
@@ -74,7 +87,7 @@ func Update_Inventory_System_Item():
 	if  HaveGun:
 		gun.show()
 	if  HaveScalpel:
-		scalpel.show()
+		scaple.show()
 	if  HaveSyringe == true:
 		syringe.show()
 	else:
@@ -93,3 +106,40 @@ func _on_area_entered(area):
 		Update_Inventory_System_Item()
 	if area.is_in_group("test"):
 		print("test 1")  
+	if area.is_in_group("Enemy"):
+		DealDamage(area.Damage)
+
+func LossHeart():
+	if HeartsHealth <= 0:
+		Hearts -=1 
+		print(Hearts)
+		UpdateHearts()
+	else:
+		UpdateHearts()
+		return
+
+func DealDamage(DamageDelt):
+	
+	damage_label.text = (str(DamageDelt))
+	damage_label.show()
+	if  HeartsHealth >=0:
+		HeartsHealth -=DamageDelt
+		LossHeart()
+	else:
+		return
+	LossHeart()
+
+func  UpdateHearts():
+	if Hearts == 1:
+		hearts.show()
+		hearts_2.hide()
+		hearts_3.hide()
+	elif  Hearts == 2:
+		hearts.show()
+		hearts_2.show()
+		hearts_3.hide()
+	elif  Hearts == 3:
+		hearts.show()
+		hearts_2.show()
+		hearts_3.show()
+		

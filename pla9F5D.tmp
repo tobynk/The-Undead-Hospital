@@ -1,14 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=4 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51ew0"]
 size = Vector2(133, 129)
-
-[sub_resource type="LabelSettings" id="LabelSettings_4wmjl"]
-line_spacing = 10.0
-font_size = 33
 
 [node name="Player" type="Area2D" groups=["player"]]
 script = ExtResource("1_c3ly3")
@@ -119,51 +115,5 @@ offset_right = 28.0
 offset_bottom = -41.0
 text = "Gun
 "
-
-[node name="Hearts" type="Node" parent="CanvasLayer"]
-
-[node name="Hearts" type="Sprite2D" parent="CanvasLayer/Hearts"]
-position = Vector2(100, 100)
-texture = ExtResource("2_c4x42")
-
-[node name="Hearts2" type="Sprite2D" parent="CanvasLayer/Hearts"]
-position = Vector2(300, 100)
-texture = ExtResource("2_c4x42")
-
-[node name="Hearts3" type="Sprite2D" parent="CanvasLayer/Hearts"]
-position = Vector2(500, 100)
-texture = ExtResource("2_c4x42")
-
-[node name="DamageLabel" type="Label" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 37.0
-offset_top = -72.0
-offset_right = 240.0
-offset_bottom = -33.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "1000"
-label_settings = SubResource("LabelSettings_4wmjl")
-
-[node name="HeartsLevel" type="Label" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -331.0
-offset_top = -468.0
-offset_right = -128.0
-offset_bottom = -422.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "1000"
-label_settings = SubResource("LabelSettings_4wmjl")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
