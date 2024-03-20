@@ -1,11 +1,11 @@
-extends Area2D
+extends CharacterBody2D
 @export var speed = 400 
 @onready var syringe = $"CanvasLayer/Item Bar/Syringe"
-@onready var scaple = $"CanvasLayer/Item Bar/scalpel/scalpel"
+@onready var scaple = $"CanvasLayer/Item Bar/scalpel"
 @onready var bonesaw = $"CanvasLayer/Item Bar/bonesaw"
 @onready var gun = $"CanvasLayer/Item Bar/Gun"
 
-
+@export var KillersTime = 1.0
 @onready var HaveBoneSaw = false
 @onready var HaveGun = false
 @onready var HaveScalpel = false
@@ -42,6 +42,8 @@ func _ready():
 
 func _process(delta):
 	testbale_for_thing.text=(str(killing_timer.time_left))
+	if InRangeWithEnemy == false:
+		killing_timer.stop()
 	RunDamage()
 	hearts_level.text = (str(HeartsHealth))
 	Update_Item_in_hand()
@@ -102,36 +104,16 @@ func Update_Inventory_System_Item():
 	else:
 		return
 
-func _on_area_entered(area):
-	if area.is_in_group("Weapons"):  
-		if area.Weapon == 1:
-			HaveSyringe = true
-		if area.Weapon == 2:
-			HaveScalpel = true
-		if area.Weapon == 3:
-			HaveBoneSaw = true
-		if area.Weapon == 4:
-			HaveGun = true
-		Update_Inventory_System_Item()
-	if area.is_in_group("Enemy"):
-		InRangeWithEnemy = true  
-		DamageFromEnemy = area.Damage
-		killing_timer.start()
 
 func RunDamage():
 	if InRangeWithEnemy:
-		print("in range to do damage")
-		print(killing_timer.time_left)
 		if killing_timer.time_left <  0.01:
-			print("timer works")
 			DealDamage(DamageFromEnemy)
-			print(DamageFromEnemy)
-			killing_timer.start(5)
+			killing_timer.start(KillersTime)
 		
 func LossHeart():
-	if HeartsHealth <= 0:
+	if HeartsHealth < 1:
 		Hearts -=1 
-		print(Hearts)
 		UpdateHearts()
 		HeartsHealth = 10
 	else:
@@ -139,7 +121,6 @@ func LossHeart():
 		return
 
 func DealDamage(DamageDelt):
-	
 	damage_label.text = (str(DamageDelt))
 	damage_label.show()
 	if  HeartsHealth >=0:
@@ -150,7 +131,7 @@ func DealDamage(DamageDelt):
 	LossHeart()
 
 func  UpdateHearts():
-	if Hearts ==1:
+	if Hearts ==0:
 		hearts.hide()
 		hearts_2.hide()
 		hearts_3.hide()
@@ -167,3 +148,27 @@ func  UpdateHearts():
 		hearts_2.show()
 		hearts_3.show()
 		
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Weapons"):  
+		if area.Weapon == 1:
+			HaveSyringe = true
+		if area.Weapon == 2:
+			HaveScalpel = true
+		if area.Weapon == 3:
+			HaveBoneSaw = true
+		if area.Weapon == 4:
+			HaveGun = true
+		Update_Inventory_System_Item()
+	if area.is_in_group("Enemy"):
+		InRangeWithEnemy = true  
+		DamageFromEnemy = area.get_parent().Damage
+		killing_timer.start()
+		DealDamage(area.get_parent().Damage)
+
+
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("Enemy"):
+		InRangeWithEnemy = false
+	
