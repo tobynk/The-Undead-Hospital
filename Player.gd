@@ -1,7 +1,7 @@
 extends Area2D
 @export var speed = 400 
 @onready var syringe = $"CanvasLayer/Item Bar/Syringe"
-@onready var scaple = $"CanvasLayer/Item Bar/scaple"
+@onready var scaple = $"CanvasLayer/Item Bar/scalpel/scalpel"
 @onready var bonesaw = $"CanvasLayer/Item Bar/bonesaw"
 @onready var gun = $"CanvasLayer/Item Bar/Gun"
 
