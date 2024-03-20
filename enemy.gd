@@ -1,6 +1,6 @@
 extends Area2D
 
-var Damage = 1
+var Damage = 5
 
 func _process(delta):
 	pass

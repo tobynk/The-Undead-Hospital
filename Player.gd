@@ -121,13 +121,12 @@ func _on_area_entered(area):
 func RunDamage():
 	if InRangeWithEnemy:
 		print("in range to do damage")
-		if killing_timer.time_left <  0.0:
+		print(killing_timer.time_left)
+		if killing_timer.time_left <  0.01:
 			print("timer works")
 			DealDamage(DamageFromEnemy)
 			print(DamageFromEnemy)
-			killing_timer.start(1)
-		else:
-			print("timer not working")
+			killing_timer.start(5)
 		
 func LossHeart():
 	if HeartsHealth <= 0:
