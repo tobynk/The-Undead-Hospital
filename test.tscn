@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dteojk37v35r3"]
+[gd_scene load_steps=6 format=3 uid="uid://dteojk37v35r3"]
 
+[ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
 [ext_resource type="PackedScene" uid="uid://d3kncurjapstq" path="res://npc_1.tscn" id="2_1ifw0"]
 [ext_resource type="PackedScene" uid="uid://ovyokpog1n0q" path="res://enemy.tscn" id="3_f7qdh"]
 [ext_resource type="PackedScene" uid="uid://del5bg47rnfcv" path="res://Weapons.tscn" id="4_rusj4"]
 
 [node name="Test" type="Node2D"]
+script = ExtResource("1_knl1m")
 
 [node name="Player" parent="." instance=ExtResource("1_yb42f")]
 
