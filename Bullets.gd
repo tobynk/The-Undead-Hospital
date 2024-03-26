@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
-var clicks = 0
-
-func _ready():
-	var clicks = get_viewport().get_mouse_position()
+var speed = 100.0
+var got_mouse = false
+var target
 
 func _physics_process(delta):
-	print(clicks)
+	
+	var direction_to_target = (target - global_position).normalized()
+	velocity = direction_to_target * speed 
+	move_and_slide()
+		
+	
+		

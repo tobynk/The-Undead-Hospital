@@ -33,6 +33,10 @@ var ItemInHand = 1
 
 var InRangeWithEnemy = false
 var DamageFromEnemy= 0
+
+var bullets = preload("res://Bullets.tscn")
+@export var parent = Node2D
+
 @onready var testbale_for_thing = $"CanvasLayer/Testbale for thing"
 
 
@@ -45,6 +49,7 @@ func _process(delta):
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
 	RunDamage()
+	handleShoot()
 	hearts_level.text = (str(HeartsHealth))
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
@@ -172,3 +177,12 @@ func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):
 		InRangeWithEnemy = false
 	
+func handleShoot():
+	var target = get_global_mouse_position()
+	if Input.is_action_pressed("Attack"):
+		var bullet = bullets.instantiate()
+		bullet.position = self.global_position
+		get_tree().root.add_child(bullet)
+		bullet.target = target
+	
+

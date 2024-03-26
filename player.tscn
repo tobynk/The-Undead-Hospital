@@ -176,9 +176,9 @@ text = "5"
 [node name="Killing Timer" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["player"]]
 visibility_layer = 7
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_51ew0")

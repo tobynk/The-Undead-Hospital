@@ -17,5 +17,4 @@ func _physics_process(delta):
 		velocity = direction_to_player * speed 
 		move_and_slide()
 	else:
-		print("notworking")
 		pass
