@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://difrytc7vn1qh"
-path="res://.godot/imported/HallwayTileMap--Sheet.png-808eac148fbcb2d5d2fd8d4b31c652ce.ctex"
+uid="uid://da0igshs72h1y"
+path="res://.godot/imported/HallwayTileMap--Sheet-export.png-b4878c6a31d52bcf48788cb6f1815118.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TileMaps/HallwayTileMap--Sheet.png"
-dest_files=["res://.godot/imported/HallwayTileMap--Sheet.png-808eac148fbcb2d5d2fd8d4b31c652ce.ctex"]
+source_file="res://TileMaps/HallwayTileMap--Sheet-export.png"
+dest_files=["res://.godot/imported/HallwayTileMap--Sheet-export.png-b4878c6a31d52bcf48788cb6f1815118.ctex"]
 
 [params]
 
