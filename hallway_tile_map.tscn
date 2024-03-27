@@ -1225,7 +1225,7 @@ tile_size = Vector2i(32, 32)
 sources/2 = SubResource("TileSetAtlasSource_myrh6")
 sources/3 = SubResource("TileSetAtlasSource_oa4cr")
 
-[node name="TileMap" type="TileMap"]
+[node name="HallwayTileMap" type="TileMap"]
 position = Vector2(959, 542)
 scale = Vector2(2, -2.554)
 tile_set = SubResource("TileSet_y5evx")
