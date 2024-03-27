@@ -19,6 +19,7 @@ KillersTime = 2.0
 texture = ExtResource("2_c4x42")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -183,8 +184,10 @@ visibility_layer = 7
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_51ew0")
 
-[node name="Killing the enemy" type="Timer" parent="."]
-wait_time = 0.5
+[node name="KillingTime" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.1
+one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

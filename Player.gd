@@ -24,7 +24,7 @@ extends CharacterBody2D
 
 @onready var hearts_level = $CanvasLayer/HeartsLevel
 
-@onready var killing_timer = $"Killing Timer"
+@onready var killing_timer = $KillingTime
 
 var Hearts = 3
 var HeartsHealth = 10
@@ -39,6 +39,8 @@ var bullets = preload("res://Bullets.tscn")
 
 @onready var testbale_for_thing = $"CanvasLayer/Testbale for thing"
 
+@onready var Shootingtimer = $Timer
+var time_to_shoot = 1
 
 func _ready():
 	TurnInventoryItemOff()
@@ -53,6 +55,10 @@ func _process(delta):
 	hearts_level.text = (str(HeartsHealth))
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
+	HandleTopDownMoveMent(delta)
+	
+	
+func HandleTopDownMoveMent(poop):
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -65,7 +71,7 @@ func _process(delta):
 		velocity.y -= 1
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-	position += velocity * delta
+	position += velocity * poop
 
 func TurnInventoryItemOff():
 	bonesaw.hide()
@@ -179,10 +185,13 @@ func _on_area_2d_area_exited(area):
 	
 func handleShoot():
 	var target = get_global_mouse_position()
-	if Input.is_action_pressed("Attack"):
+	print(Shootingtimer.time_left)
+	if Input.is_action_pressed("Attack") && Shootingtimer.time_left <= 0.1:
+		Shootingtimer.stop()
 		var bullet = bullets.instantiate()
 		bullet.position = self.global_position
-		get_tree().root.add_child(bullet)
 		bullet.target = target
+		get_tree().root.add_child(bullet)
+		Shootingtimer.start(time_to_shoot)
 	
 

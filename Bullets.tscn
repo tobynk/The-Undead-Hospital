@@ -9,3 +9,9 @@ script = ExtResource("1_aj4w6")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_c1f8x")
+
+[node name="suicide timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="suicide timer" to="." method="_on_suicide_timer_timeout"]
