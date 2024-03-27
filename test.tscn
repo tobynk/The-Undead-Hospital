@@ -19,7 +19,7 @@ position = Vector2(1651, 286)
 position = Vector2(318, 383)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
-position = Vector2(2196, 653)
+position = Vector2(2167, 747)
 player = NodePath("../Player")
 
 [node name="Weapons" parent="." instance=ExtResource("4_rusj4")]
@@ -36,3 +36,7 @@ position = Vector2(397, 748)
 [node name="Weapons4" parent="." instance=ExtResource("4_rusj4")]
 position = Vector2(-66, 864)
 Weapon = 4
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(2527, 404)
+player = NodePath("../Player")

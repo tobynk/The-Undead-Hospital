@@ -184,7 +184,7 @@ visibility_layer = 7
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_51ew0")
 
-[node name="KillingTime" type="Timer" parent="."]
+[node name="ShootingTimer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 0.1
 one_shot = true

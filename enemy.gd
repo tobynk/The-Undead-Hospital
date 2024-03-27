@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var Damage = 5
 const speed = 250  # Adjust the speed as needed
+var health = 10
 @export var player: Node2D
 var DistanceToPlayer = 0
 var gamestart = true
@@ -18,3 +19,11 @@ func _physics_process(delta):
 		move_and_slide()
 	else:
 		pass
+	if health <= 0:
+		queue_free()
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Bullet"):
+		health = health - area.get_parent().damage
+		area.get_parent().queue_free()
