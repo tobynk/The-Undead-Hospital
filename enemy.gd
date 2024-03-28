@@ -36,8 +36,6 @@ func update_animation():
 	elif  velocity.x >= 0:
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("Walking")
-		print("moving right")
 	elif  velocity.x <= 0:
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("Walking")
-		print("moving Left")

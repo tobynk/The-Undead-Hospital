@@ -179,6 +179,14 @@ func _on_area_2d_area_entered(area):
 		DamageFromEnemy = area.get_parent().Damage
 		killing_timer.start()
 		DealDamage(area.get_parent().Damage)
+	if area.is_in_group("Hearts"):
+		if Hearts == 3:
+			pass
+		else: 
+			Hearts += 1
+			UpdateHearts()
+		
+		
 
 
 func _on_area_2d_area_exited(area):

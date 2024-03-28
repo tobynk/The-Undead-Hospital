@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://cthmygvk87h6h"]
+[gd_scene load_steps=7 format=3 uid="uid://cthmygvk87h6h"]
 
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
 [ext_resource type="PackedScene" uid="uid://d3kncurjapstq" path="res://npc_1.tscn" id="2_1ifw0"]
+[ext_resource type="PackedScene" uid="uid://04ndx7lh4g2a" path="res://hearts.tscn" id="2_wh1ol"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_f7qdh"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
+
+[node name="Hearts3" parent="." instance=ExtResource("2_wh1ol")]
+position = Vector2(1521, 1837)
+scale = Vector2(0.01, 0.01)
 
 [node name="Player" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("1_yb42f")]
 parent = NodePath("..")
@@ -40,3 +45,11 @@ Weapon = 4
 [node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
 position = Vector2(2527, 404)
 player = NodePath("../Player")
+
+[node name="Hearts" parent="." instance=ExtResource("2_wh1ol")]
+position = Vector2(2082, 1301)
+scale = Vector2(0.1, 0.1)
+
+[node name="Hearts2" parent="." instance=ExtResource("2_wh1ol")]
+position = Vector2(2630, 834)
+scale = Vector2(0.1, 0.1)
