@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://04ndx7lh4g2a"]
+
+[ext_resource type="Texture2D" uid="uid://dxj1jp2w3vqqy" path="res://Pixel Art/Hearts.png" id="1_sf5f6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2iy6"]
+radius = 652.442
+
+[node name="Hearts" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sf5f6")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_o2iy6")

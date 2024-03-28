@@ -127,6 +127,8 @@ func LossHeart():
 		Hearts -=1 
 		UpdateHearts()
 		HeartsHealth = 10
+	elif  Hearts == 0:
+		queue_free()
 	else:
 		UpdateHearts()
 		return
