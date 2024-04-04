@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
-[ext_resource type="Texture2D" uid="uid://bwxq50frf346k" path="res://Pixel Art/Hearts that is actually real.png" id="3_3jt0c"]
+[ext_resource type="Texture2D" uid="uid://q6bg8mptnkyh" path="res://Pixel Art/Heart.png" id="3_mokk7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wmjl"]
 line_spacing = 10.0
@@ -122,18 +122,18 @@ text = "Gun
 
 [node name="Hearts" type="Sprite2D" parent="CanvasLayer/Hearts"]
 position = Vector2(100, 100)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_3jt0c")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_mokk7")
 
 [node name="Hearts2" type="Sprite2D" parent="CanvasLayer/Hearts"]
 position = Vector2(300, 100)
-scale = Vector2(0.511811, 0.496063)
-texture = ExtResource("3_3jt0c")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_mokk7")
 
 [node name="Hearts3" type="Sprite2D" parent="CanvasLayer/Hearts"]
 position = Vector2(500, 100)
-scale = Vector2(0.464567, 0.472441)
-texture = ExtResource("3_3jt0c")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_mokk7")
 
 [node name="DamageLabel" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
@@ -150,29 +150,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 text = "1000"
 label_settings = SubResource("LabelSettings_4wmjl")
-
-[node name="HeartsLevel" type="Label" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -331.0
-offset_top = -468.0
-offset_right = -128.0
-offset_bottom = -422.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-text = "1000"
-label_settings = SubResource("LabelSettings_4wmjl")
-
-[node name="Testbale for thing" type="Label" parent="CanvasLayer"]
-offset_left = 14.0
-offset_top = 192.0
-offset_right = 222.0
-offset_bottom = 244.0
-text = "5"
 
 [node name="Killing Timer" type="Timer" parent="."]
 wait_time = 5.0

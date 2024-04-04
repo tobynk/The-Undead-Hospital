@@ -26,6 +26,8 @@ extends CharacterBody2D
 
 @onready var killing_timer = $"Killing Timer"
 
+
+
 var Hearts = 3
 var HeartsHealth = 10
 
@@ -47,12 +49,10 @@ func _ready():
 	UpdateHearts()
 
 func _process(delta):
-	testbale_for_thing.text=(str(killing_timer.time_left))
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
 	RunDamage()
 	handleShoot()
-	hearts_level.text = (str(HeartsHealth))
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
 	HandleTopDownMoveMent(delta)
@@ -203,4 +203,3 @@ func handleShoot():
 		get_tree().root.add_child(bullet)
 		Shootingtimer.start(time_to_shoot)
 	
-
