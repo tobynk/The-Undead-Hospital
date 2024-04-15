@@ -1,9 +1,9 @@
 extends CharacterBody2D
 @export var speed = 400 
-@onready var syringe = $"CanvasLayer/Item Bar/Syringe"
-@onready var scaple = $"CanvasLayer/Item Bar/scalpel"
-@onready var bonesaw = $"CanvasLayer/Item Bar/bonesaw"
-@onready var gun = $"CanvasLayer/Item Bar/Gun"
+@onready var syringe = $"Camera2D/CanvasLayer/Item Bar/Syringe"
+@onready var scaple = $"Camera2D/CanvasLayer/Item Bar/scalpel"
+@onready var bonesaw = $"Camera2D/CanvasLayer/Item Bar/bonesaw"
+@onready var gun = $"Camera2D/CanvasLayer/Item Bar/Gun"
 
 @export var KillersTime = 1.0
 @onready var HaveBoneSaw = false
@@ -11,21 +11,22 @@ extends CharacterBody2D
 @onready var HaveScalpel = false
 @onready var HaveSyringe = false
 
-@onready var item_1 = $"CanvasLayer/Item Bar/Item1"
-@onready var item_2 = $"CanvasLayer/Item Bar/Item2"
-@onready var item_3 = $"CanvasLayer/Item Bar/Item3"
-@onready var item_4 = $"CanvasLayer/Item Bar/Item4"
+@onready var item_1 = $"Camera2D/CanvasLayer/Item Bar/Item1"
+@onready var item_2 = $"Camera2D/CanvasLayer/Item Bar/Item2"
+@onready var item_3 = $"Camera2D/CanvasLayer/Item Bar/Item3"
+@onready var item_4 = $"Camera2D/CanvasLayer/Item Bar/Item4"
 
-@onready var hearts = $CanvasLayer/Hearts/Hearts
-@onready var hearts_2 = $CanvasLayer/Hearts/Hearts2
-@onready var hearts_3 = $CanvasLayer/Hearts/Hearts3
+@onready var hearts = $Camera2D/CanvasLayer/Hearts/Hearts
+@onready var hearts_2 = $Camera2D/CanvasLayer/Hearts/Hearts2
+@onready var hearts_3 = $Camera2D/CanvasLayer/Hearts/Hearts3
 
-@onready var damage_label = $CanvasLayer/DamageLabel
+@onready var damage_label = $Camera2D/CanvasLayer/DamageLabel
 
-@onready var hearts_level = $CanvasLayer/HeartsLevel
+@onready var hearts_level = $Camera2D/CanvasLayer/HeartsLevel
 
 @onready var killing_timer = $"Killing Timer"
 
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 var Hearts = 3
@@ -57,12 +58,16 @@ func _process(delta):
 	Input_for_item_in_hand()
 	HandleTopDownMoveMent(delta)
 	
-	
+		
 func HandleTopDownMoveMent(poop):
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
+		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("Walking")
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Walking")
 		velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1

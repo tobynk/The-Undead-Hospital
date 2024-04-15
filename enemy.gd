@@ -33,9 +33,9 @@ func _on_area_2d_area_entered(area):
 func update_animation():
 	if velocity.x == 0:
 		pass
-	elif  velocity.x >= 0:
+	elif  velocity.x >= 5:
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("Walking")
-	elif  velocity.x <= 0:
+	elif  velocity.x <= 5:
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("Walking")
