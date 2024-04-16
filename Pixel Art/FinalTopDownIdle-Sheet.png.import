@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b03ivycg4io7w"
-path="res://.godot/imported/Zombie.png-047c474ec2e62eedd6b46ff64c6e83c3.ctex"
+uid="uid://xy1wdsw4roec"
+path="res://.godot/imported/FinalTopDownIdle-Sheet.png-ca6a7bfe1fcfb05f9e51dcc99c7308b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art/Zombie.png"
-dest_files=["res://.godot/imported/Zombie.png-047c474ec2e62eedd6b46ff64c6e83c3.ctex"]
+source_file="res://Pixel Art/FinalTopDownIdle-Sheet.png"
+dest_files=["res://.godot/imported/FinalTopDownIdle-Sheet.png-ca6a7bfe1fcfb05f9e51dcc99c7308b7.ctex"]
 
 [params]
 

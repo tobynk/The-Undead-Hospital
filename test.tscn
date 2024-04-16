@@ -53,3 +53,5 @@ scale = Vector2(0.1, 0.1)
 [node name="Hearts2" parent="." instance=ExtResource("2_wh1ol")]
 position = Vector2(2630, 834)
 scale = Vector2(0.1, 0.1)
+
+[node name="Camera2D" type="Camera2D" parent="."]

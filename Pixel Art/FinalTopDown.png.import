@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://88e8gcre38o0"
-path="res://.godot/imported/front and back topdown-Sheet.png-092bee2d376cce17a672dbc0a21d91bc.ctex"
+uid="uid://dw32e2bk62srk"
+path="res://.godot/imported/FinalTopDown.png-7173eafdc53318c6c5769a4b257cbe7e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art/front and back topdown-Sheet.png"
-dest_files=["res://.godot/imported/front and back topdown-Sheet.png-092bee2d376cce17a672dbc0a21d91bc.ctex"]
+source_file="res://Pixel Art/FinalTopDown.png"
+dest_files=["res://.godot/imported/FinalTopDown.png-7173eafdc53318c6c5769a4b257cbe7e.ctex"]
 
 [params]
 

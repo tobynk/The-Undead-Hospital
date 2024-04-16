@@ -1,9 +1,9 @@
 extends CharacterBody2D
 @export var speed = 400 
-@onready var syringe = $"Camera2D/CanvasLayer/Item Bar/Syringe"
-@onready var scaple = $"Camera2D/CanvasLayer/Item Bar/scalpel"
-@onready var bonesaw = $"Camera2D/CanvasLayer/Item Bar/bonesaw"
-@onready var gun = $"Camera2D/CanvasLayer/Item Bar/Gun"
+@onready var syringe = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Syringe"
+@onready var scaple = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/scalpel"
+@onready var bonesaw = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/bonesaw"
+@onready var gun = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Gun"
 
 @export var KillersTime = 1.0
 @onready var HaveBoneSaw = false
@@ -11,10 +11,10 @@ extends CharacterBody2D
 @onready var HaveScalpel = false
 @onready var HaveSyringe = false
 
-@onready var item_1 = $"Camera2D/CanvasLayer/Item Bar/Item1"
-@onready var item_2 = $"Camera2D/CanvasLayer/Item Bar/Item2"
-@onready var item_3 = $"Camera2D/CanvasLayer/Item Bar/Item3"
-@onready var item_4 = $"Camera2D/CanvasLayer/Item Bar/Item4"
+@onready var item_1 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item1"
+@onready var item_2 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item2"
+@onready var item_3 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item3"
+@onready var item_4 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item4"
 
 @onready var hearts = $Camera2D/CanvasLayer/Hearts/Hearts
 @onready var hearts_2 = $Camera2D/CanvasLayer/Hearts/Hearts2
@@ -28,6 +28,7 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+var Facing =0
 
 var Hearts = 3
 var HeartsHealth = 10
@@ -62,21 +63,48 @@ func _process(delta):
 func HandleTopDownMoveMent(poop):
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
-		animated_sprite_2d.flip_h = true
-		animated_sprite_2d.play("Walking")
+		if Input.is_action_pressed("move_up"):
+			animated_sprite_2d.play("Waling_up")
+		elif Input.is_action_pressed("move_down"):
+			animated_sprite_2d.play("Waling_down")	
+		else:
+			animated_sprite_2d.flip_h = false
+			animated_sprite_2d.play("Walking_side")
+			Facing = 1
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
-		animated_sprite_2d.flip_h = false
-		animated_sprite_2d.play("Walking")
+		if Input.is_action_pressed("move_down"):
+			animated_sprite_2d.play("Waling_down")
+		elif Input.is_action_pressed("move_up"):
+			animated_sprite_2d.play("Waling_up")
+		else:
+			animated_sprite_2d.flip_h = true
+			animated_sprite_2d.play("Walking_side")
+			Facing = 2
 		velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Waling_down")
+		Facing = 3
 	if Input.is_action_pressed("move_up"):
-		
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Waling_up")
 		velocity.y -= 1
+		Facing = 4
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+	if velocity.length() == 0:
+		if Facing == 1:
+			animated_sprite_2d.flip_h = false
+			animated_sprite_2d.play("Idle Side")
+		if Facing == 2:
+			animated_sprite_2d.flip_h = true
+			animated_sprite_2d.play("Idle Side")
+		if Facing == 4:
+			animated_sprite_2d.play("Idle Up")
 	position += velocity * poop
+
 
 func TurnInventoryItemOff():
 	bonesaw.hide()
