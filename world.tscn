@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bef67vrcrspwc"]
+
+[sub_resource type="TileSet" id="TileSet_vuq22"]
+tile_shape = 1
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_vuq22")
+format = 2

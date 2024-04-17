@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://dy043lv6wq71i"
-=======
-uid="uid://c0o2sp01viy0a"
->>>>>>> Stashed changes
-path="res://.godot/imported/Saw.png-b6f49bf43fd7bb277b8e498e2f60dddd.ctex"
+uid="uid://bgw26vem2qijj"
+path="res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art/Saw.png"
-dest_files=["res://.godot/imported/Saw.png-b6f49bf43fd7bb277b8e498e2f60dddd.ctex"]
+source_file="res://tileset.png"
+dest_files=["res://.godot/imported/tileset.png-a39e944f25b35d62f55d4f98a36e2b5e.ctex"]
 
 [params]
 
