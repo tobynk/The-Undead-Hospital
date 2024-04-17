@@ -2,16 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbkvfss7mhbit"
-path="res://.godot/imported/heart4.png-c43be0294e4950c5142b2795ec3d3ba6.ctex"
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+uid="uid://dy043lv6wq71i"
+=======
+uid="uid://c0o2sp01viy0a"
+>>>>>>> Stashed changes
+=======
+uid="uid://c0o2sp01viy0a"
+>>>>>>> Stashed changes
+path="res://.godot/imported/Saw.png-b6f49bf43fd7bb277b8e498e2f60dddd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Pixel Art/heart4.png"
-dest_files=["res://.godot/imported/heart4.png-c43be0294e4950c5142b2795ec3d3ba6.ctex"]
+source_file="res://Pixel Art/Saw.png"
+dest_files=["res://.godot/imported/Saw.png-b6f49bf43fd7bb277b8e498e2f60dddd.ctex"]
 
 [params]
 
