@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://oue8iwhflwby"]
+[gd_scene load_steps=6 format=3 uid="uid://oue8iwhflwby"]
 
 [ext_resource type="Script" path="res://Weapons.gd" id="1_s15n8"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_itl61"]
+[ext_resource type="Texture2D" uid="uid://cow1t6yjj12yh" path="res://Pixel Art/Scalpel.png" id="2_psfo4"]
+[ext_resource type="Texture2D" uid="uid://c4ystx8u7lprb" path="res://Pixel Art/Syringe.png" id="3_pih6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5wum"]
 size = Vector2(130, 129)
@@ -9,44 +11,25 @@ size = Vector2(130, 129)
 [node name="Weapons" type="Area2D" groups=["Weapons"]]
 script = ExtResource("1_s15n8")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Scapel" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_psfo4")
+
+[node name="Syringe" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_pih6m")
+
+[node name="Gun" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_itl61")
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Syringe" type="Label" parent="Node2D"]
+[node name="bonesaw" type="Sprite2D" parent="."]
 visible = false
-offset_left = -31.0
-offset_top = -63.0
-offset_right = 27.0
-offset_bottom = -40.0
-text = "Syringe"
-
-[node name="scaple" type="Label" parent="Node2D"]
-visible = false
-offset_left = -30.0
-offset_top = -63.0
-offset_right = 28.0
-offset_bottom = -40.0
-text = "Scaple"
-
-[node name="bonesaw" type="Label" parent="Node2D"]
-visible = false
-offset_left = -31.0
-offset_top = -62.0
-offset_right = 39.0
-offset_bottom = -39.0
-text = "bonesaw
-"
-
-[node name="Gun" type="Label" parent="Node2D"]
-visible = false
-offset_left = -30.0
-offset_top = -64.0
-offset_right = 28.0
-offset_bottom = -41.0
-text = "Gun
-"
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_itl61")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 2
