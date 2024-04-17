@@ -101,6 +101,8 @@ func HandleTopDownMoveMent(poop):
 		if Facing == 2:
 			animated_sprite_2d.flip_h = true
 			animated_sprite_2d.play("Idle Side")
+		if Facing == 3:
+			animated_sprite_2d.play("Idle Down")
 		if Facing == 4:
 			animated_sprite_2d.play("Idle Up")
 	position += velocity * poop
