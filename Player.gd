@@ -46,6 +46,8 @@ var bullets = preload("res://Bullets.tscn")
 @onready var Shootingtimer = $ShootingTimer
 var time_to_shoot = 0.5
 
+
+
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()

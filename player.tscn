@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=42 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://q6bg8mptnkyh" path="res://Pixel Art/Heart.png" id="3_mokk7"]
 [ext_resource type="Texture2D" uid="uid://cow1t6yjj12yh" path="res://Pixel Art/Scalpel.png" id="4_rnkvq"]
 [ext_resource type="Texture2D" uid="uid://dw32e2bk62srk" path="res://Pixel Art/FinalTopDown.png" id="6_8k81q"]
+[ext_resource type="Texture2D" uid="uid://dhkabd7i6h08e" path="res://Pixel Art/Saw.png" id="6_lt14b"]
 [ext_resource type="Texture2D" uid="uid://xy1wdsw4roec" path="res://Pixel Art/FinalTopDownIdle-Sheet.png" id="6_ujyka"]
 [ext_resource type="Texture2D" uid="uid://cfdnr4xmkeq5t" path="res://Pixel Art/WASDfixedFinal..png" id="7_0bo7r"]
+[ext_resource type="Texture2D" uid="uid://bstlboei5k2hq" path="res://Pixel Art/Gun.png" id="7_bju58"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wmjl"]
 line_spacing = 10.0
@@ -318,29 +320,14 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_rnkvq")
 
 [node name="bonesaw" type="Sprite2D" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar"]
-position = Vector2(157, -1)
-texture = ExtResource("2_c4x42")
-
-[node name="bonesaw" type="Label" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/bonesaw"]
-offset_left = -31.0
-offset_top = -62.0
-offset_right = 39.0
-offset_bottom = -39.0
-text = "bonesaw
-"
-metadata/_edit_use_anchors_ = true
+position = Vector2(149, 9)
+scale = Vector2(3, 3)
+texture = ExtResource("6_lt14b")
 
 [node name="Gun" type="Sprite2D" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar"]
 position = Vector2(464, -1)
-texture = ExtResource("2_c4x42")
-
-[node name="Gun" type="Label" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Gun"]
-offset_left = -30.0
-offset_top = -64.0
-offset_right = 28.0
-offset_bottom = -41.0
-text = "Gun
-"
+scale = Vector2(3, 3)
+texture = ExtResource("7_bju58")
 
 [node name="Hearts" type="Node" parent="Camera2D/CanvasLayer"]
 
@@ -384,7 +371,7 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["player"]]
 visibility_layer = 7
-position = Vector2(-14, -4)
+position = Vector2(2.08165e-12, 15)
 shape = SubResource("RectangleShape2D_51ew0")
 
 [node name="ShootingTimer" type="Timer" parent="."]

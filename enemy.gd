@@ -24,6 +24,10 @@ func _physics_process(delta):
 	if health <= 0:
 		queue_free()
 
+func take_damage(damage: int):
+	health -=damage
+	
+
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Bullet"):

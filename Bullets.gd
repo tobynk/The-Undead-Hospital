@@ -12,7 +12,8 @@ func _ready():
 func _physics_process(delta):
 	velocity = direction_to_target * speed 
 	move_and_slide()
-		
+	$Sprite2D.rotation = direction_to_target.angle()
+
 	
 		
 
