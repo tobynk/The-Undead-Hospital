@@ -278,35 +278,31 @@ scale = Vector2(0.1, 0.098)
 texture = ExtResource("3_2kaa1")
 
 [node name="Item1" type="ColorRect" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar"]
-visible = false
-offset_left = -673.0
-offset_top = -81.0
-offset_right = -513.0
-offset_bottom = 76.0
+offset_left = -530.0
+offset_top = -83.0
+offset_right = -370.0
+offset_bottom = 74.0
 color = Color(0, 0, 0, 1)
 
 [node name="Item2" type="ColorRect" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar"]
-visible = false
-offset_left = -278.0
-offset_top = -78.0
-offset_right = -118.0
-offset_bottom = 79.0
+offset_left = -222.0
+offset_top = -80.0
+offset_right = -62.0
+offset_bottom = 77.0
 color = Color(0, 0, 0, 1)
 
 [node name="Item3" type="ColorRect" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar"]
-visible = false
-offset_left = 125.0
-offset_top = -78.0
-offset_right = 285.0
-offset_bottom = 79.0
+offset_left = 81.0
+offset_top = -84.0
+offset_right = 241.0
+offset_bottom = 73.0
 color = Color(0, 0, 0, 1)
 
 [node name="Item4" type="ColorRect" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar"]
-visible = false
-offset_left = 524.0
-offset_top = -79.0
-offset_right = 684.0
-offset_bottom = 78.0
+offset_left = 381.0
+offset_top = -82.0
+offset_right = 541.0
+offset_bottom = 75.0
 color = Color(0, 0, 0, 1)
 
 [node name="Syringe" type="Sprite2D" parent="Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar"]

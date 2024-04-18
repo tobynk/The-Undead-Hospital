@@ -28,6 +28,9 @@ extends CharacterBody2D
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+@onready var attack_2d = $"Attack 2d"
+
+
 var Facing =0
 
 var Hearts = 3
@@ -39,18 +42,22 @@ var InRangeWithEnemy = false
 var DamageFromEnemy= 0
 
 var bullets = preload("res://Bullets.tscn")
+var DEATH_BOX = preload("res://death_box.tscn")
 @export var parent = Node2D
 
 @onready var testbale_for_thing = $"CanvasLayer/Testbale for thing"
 
 @onready var Shootingtimer = $ShootingTimer
 var time_to_shoot = 0.5
-
+@export var damage = 10.0
+@onready var attack_box = $"Attack 2d/Attack Box"
 
 
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()
+
+	
 
 func _process(delta):
 	if InRangeWithEnemy == false:
@@ -60,6 +67,8 @@ func _process(delta):
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
 	HandleTopDownMoveMent(delta)
+	handleAtack()
+	
 	
 		
 func HandleTopDownMoveMent(poop):
@@ -115,6 +124,10 @@ func TurnInventoryItemOff():
 	gun.hide()
 	scaple.hide()
 	syringe.hide()
+	item_1.hide()
+	item_2.hide()
+	item_3.hide()
+	item_4.hide()
 
 func Update_Item_in_hand():
 	item_1.hide()
@@ -222,9 +235,6 @@ func _on_area_2d_area_entered(area):
 		else: 
 			Hearts += 1
 			UpdateHearts()
-		
-		
-
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):
@@ -239,4 +249,10 @@ func handleShoot():
 		bullet.target = target
 		get_tree().root.add_child(bullet)
 		Shootingtimer.start(time_to_shoot)
+		
+func handleAtack():
+	if Input.is_action_pressed("Attack") && Shootingtimer.time_left <= 0.1 && ItemInHand == 1:
+		var killingbox = DEATH_BOX.instantiate()
+		get_tree().root.add_child(killingbox)
+
 	

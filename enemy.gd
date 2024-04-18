@@ -30,9 +30,13 @@ func take_damage(damage: int):
 
 
 func _on_area_2d_area_entered(area):
+	print(area.name)
 	if area.is_in_group("Bullet"):
 		health = health - area.get_parent().damage
 		area.get_parent().queue_free()
+	if area.is_in_group("PlayerAttackBoxs"):
+		print("this thing did dmag")
+		health = health - area.get_parent().damage
 		
 func update_animation():
 	if velocity.x == 0:

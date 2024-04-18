@@ -6,6 +6,7 @@ var target
 var direction_to_target = Vector2.ZERO
 @export var damage = 10.0
 
+
 func _ready():
 	direction_to_target = (target - global_position).normalized()
 	
