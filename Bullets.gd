@@ -6,13 +6,15 @@ var target
 var direction_to_target = Vector2.ZERO
 @export var damage = 10.0
 
+
 func _ready():
 	direction_to_target = (target - global_position).normalized()
 	
 func _physics_process(delta):
 	velocity = direction_to_target * speed 
 	move_and_slide()
-		
+	$Sprite2D.rotation = direction_to_target.angle()
+
 	
 		
 

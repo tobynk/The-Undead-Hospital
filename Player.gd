@@ -1,9 +1,9 @@
 extends CharacterBody2D
 @export var speed = 400 
-@onready var syringe = $"CanvasLayer/Item Bar/Syringe"
-@onready var scaple = $"CanvasLayer/Item Bar/scalpel"
-@onready var bonesaw = $"CanvasLayer/Item Bar/bonesaw"
-@onready var gun = $"CanvasLayer/Item Bar/Gun"
+@onready var syringe = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Syringe"
+@onready var scaple = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/scalpel"
+@onready var bonesaw = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/bonesaw"
+@onready var gun = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Gun"
 
 @export var KillersTime = 1.0
 @onready var HaveBoneSaw = false
@@ -11,20 +11,27 @@ extends CharacterBody2D
 @onready var HaveScalpel = false
 @onready var HaveSyringe = false
 
-@onready var item_1 = $"CanvasLayer/Item Bar/Item1"
-@onready var item_2 = $"CanvasLayer/Item Bar/Item2"
-@onready var item_3 = $"CanvasLayer/Item Bar/Item3"
-@onready var item_4 = $"CanvasLayer/Item Bar/Item4"
+@onready var item_1 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item1"
+@onready var item_2 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item2"
+@onready var item_3 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item3"
+@onready var item_4 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item4"
 
-@onready var hearts = $CanvasLayer/Hearts/Hearts
-@onready var hearts_2 = $CanvasLayer/Hearts/Hearts2
-@onready var hearts_3 = $CanvasLayer/Hearts/Hearts3
+@onready var hearts = $Camera2D/CanvasLayer/Hearts/Hearts
+@onready var hearts_2 = $Camera2D/CanvasLayer/Hearts/Hearts2
+@onready var hearts_3 = $Camera2D/CanvasLayer/Hearts/Hearts3
 
-@onready var damage_label = $CanvasLayer/DamageLabel
+@onready var damage_label = $Camera2D/CanvasLayer/DamageLabel
 
-@onready var hearts_level = $CanvasLayer/HeartsLevel
+@onready var hearts_level = $Camera2D/CanvasLayer/HeartsLevel
 
 @onready var killing_timer = $"Killing Timer"
+
+@onready var animated_sprite_2d = $AnimatedSprite2D
+
+@onready var attack_2d = $"Attack 2d"
+
+
+var Facing =0
 
 var Hearts = 3
 var HeartsHealth = 10
@@ -35,49 +42,92 @@ var InRangeWithEnemy = false
 var DamageFromEnemy= 0
 
 var bullets = preload("res://Bullets.tscn")
+var DEATH_BOX = preload("res://death_box.tscn")
 @export var parent = Node2D
 
 @onready var testbale_for_thing = $"CanvasLayer/Testbale for thing"
 
 @onready var Shootingtimer = $ShootingTimer
 var time_to_shoot = 0.5
+@export var damage = 10.0
+@onready var attack_box = $"Attack 2d/Attack Box"
+
 
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()
 
+	
+
 func _process(delta):
-	testbale_for_thing.text=(str(killing_timer.time_left))
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
 	RunDamage()
 	handleShoot()
-	hearts_level.text = (str(HeartsHealth))
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
 	HandleTopDownMoveMent(delta)
+	handleAtack()
 	
 	
+		
 func HandleTopDownMoveMent(poop):
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
+		if Input.is_action_pressed("move_up"):
+			animated_sprite_2d.play("Waling_up")
+		elif Input.is_action_pressed("move_down"):
+			animated_sprite_2d.play("Waling_down")	
+		else:
+			animated_sprite_2d.flip_h = false
+			animated_sprite_2d.play("Walking_side")
+			Facing = 1
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed("move_down"):
+			animated_sprite_2d.play("Waling_down")
+		elif Input.is_action_pressed("move_up"):
+			animated_sprite_2d.play("Waling_up")
+		else:
+			animated_sprite_2d.flip_h = true
+			animated_sprite_2d.play("Walking_side")
+			Facing = 2
 		velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
 		velocity.y += 1
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Waling_down")
+		Facing = 3
 	if Input.is_action_pressed("move_up"):
-		
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Waling_up")
 		velocity.y -= 1
+		Facing = 4
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
+	if velocity.length() == 0:
+		if Facing == 1:
+			animated_sprite_2d.flip_h = false
+			animated_sprite_2d.play("Idle Side")
+		if Facing == 2:
+			animated_sprite_2d.flip_h = true
+			animated_sprite_2d.play("Idle Side")
+		if Facing == 3:
+			animated_sprite_2d.play("Idle Down")
+		if Facing == 4:
+			animated_sprite_2d.play("Idle Up")
 	position += velocity * poop
+
 
 func TurnInventoryItemOff():
 	bonesaw.hide()
 	gun.hide()
 	scaple.hide()
 	syringe.hide()
+	item_1.hide()
+	item_2.hide()
+	item_3.hide()
+	item_4.hide()
 
 func Update_Item_in_hand():
 	item_1.hide()
@@ -127,6 +177,8 @@ func LossHeart():
 		Hearts -=1 
 		UpdateHearts()
 		HeartsHealth = 10
+	elif  Hearts == 0:
+		queue_free()
 	else:
 		UpdateHearts()
 		return
@@ -177,7 +229,12 @@ func _on_area_2d_area_entered(area):
 		DamageFromEnemy = area.get_parent().Damage
 		killing_timer.start()
 		DealDamage(area.get_parent().Damage)
-
+	if area.is_in_group("Hearts"):
+		if Hearts == 3:
+			pass
+		else: 
+			Hearts += 1
+			UpdateHearts()
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):
@@ -192,5 +249,10 @@ func handleShoot():
 		bullet.target = target
 		get_tree().root.add_child(bullet)
 		Shootingtimer.start(time_to_shoot)
-	
+		
+func handleAtack():
+	if Input.is_action_pressed("Attack") && Shootingtimer.time_left <= 0.1 && ItemInHand == 1:
+		var killingbox = DEATH_BOX.instantiate()
+		get_tree().root.add_child(killingbox)
 
+	

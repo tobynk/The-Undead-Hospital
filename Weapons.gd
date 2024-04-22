@@ -1,10 +1,10 @@
 extends Node2D
 
 @export var Weapon = 1
-@onready var syringe = $Node2D/Syringe
-@onready var scaple = $Node2D/scaple
-@onready var bonesaw = $Node2D/bonesaw
-@onready var gun = $Node2D/Gun
+@onready var syringe = $Syringe
+@onready var scaple = $Scapel
+@onready var bonesaw = $bonesaw
+@onready var gun = $Gun
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

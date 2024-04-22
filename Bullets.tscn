@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddf0qeftrdske"]
+[gd_scene load_steps=4 format=3 uid="uid://cva6ai8i8g46e"]
 
 [ext_resource type="Script" path="res://Bullets.gd" id="1_aj4w6"]
-[ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c1f8x"]
+[ext_resource type="Texture2D" uid="uid://dmx0aoafhqj0a" path="res://Pixel Art/bullet.png" id="2_vkdlv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jbfco"]
 size = Vector2(68, 63)
 
 [node name="Bullets" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_aj4w6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_c1f8x")
+position = Vector2(15, 25)
+scale = Vector2(5, 5)
+texture = ExtResource("2_vkdlv")
 
 [node name="suicide timer" type="Timer" parent="."]
 wait_time = 5.0

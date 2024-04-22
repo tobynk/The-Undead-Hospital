@@ -6,9 +6,11 @@ var health = 10
 @export var player: Node2D
 var DistanceToPlayer = 0
 var gamestart = true
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 func _physics_process(delta):
+	update_animation()
 	gamestart = $"..".gamestart
 	var X = player.global_position.x - global_position.x
 	var Y = player.global_position.y - global_position.y
@@ -22,8 +24,26 @@ func _physics_process(delta):
 	if health <= 0:
 		queue_free()
 
+func take_damage(damage: int):
+	health -=damage
+	
+
 
 func _on_area_2d_area_entered(area):
+	print(area.name)
 	if area.is_in_group("Bullet"):
 		health = health - area.get_parent().damage
 		area.get_parent().queue_free()
+	if area.is_in_group("PlayerAttackBoxs"):
+		print("this thing did dmag")
+		health = health - area.get_parent().damage
+		
+func update_animation():
+	if velocity.x == 0:
+		pass
+	elif  velocity.x >= 5:
+		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("Walking")
+	elif  velocity.x <= 5:
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Walking")
