@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=43 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
@@ -241,6 +241,9 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ll0jq"]
+radius = 272.151
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_c3ly3")
 KillersTime = 2.0
@@ -380,6 +383,12 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8ll5y")
 animation = &"Idle Down"
 frame_progress = 0.0419562
+
+[node name="DeathBox" type="Area2D" parent="." groups=["DeathBox"]]
+
+[node name="DeathBox" type="CollisionShape2D" parent="DeathBox" groups=["DeathBox"]]
+shape = SubResource("CircleShape2D_ll0jq")
+disabled = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

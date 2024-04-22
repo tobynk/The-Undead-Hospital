@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgg4swmxdb8fa"]
+
+[ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_7mag1"]
+
+[node name="BoseBattle" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_7mag1")]
+position = Vector2(1036, 1637)

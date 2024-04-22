@@ -7,7 +7,7 @@ var health = 10
 var DistanceToPlayer = 0
 var gamestart = true
 @onready var animated_sprite_2d = $AnimatedSprite2D
-
+const PUSHBACK_FORCE = 20000
 
 func _physics_process(delta):
 	update_animation()
@@ -37,7 +37,13 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("PlayerAttackBoxs"):
 		print("this thing did dmag")
 		health = health - area.get_parent().damage
-		
+	if area.is_in_group("DeathBox"):
+		health = health - area.get_parent().DeathboxDamage
+		var pushbackForce = (global_position - area.global_position).normalized() * PUSHBACK_FORCE
+		velocity += pushbackForce 
+		print(velocity)
+		move_and_slide()
+	
 func update_animation():
 	if velocity.x == 0:
 		pass

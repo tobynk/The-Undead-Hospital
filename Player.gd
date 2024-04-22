@@ -29,6 +29,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 @onready var attack_2d = $"Attack 2d"
+@onready var death_box = $DeathBox/DeathBox
 
 
 var Facing =0
@@ -42,7 +43,7 @@ var InRangeWithEnemy = false
 var DamageFromEnemy= 0
 
 var bullets = preload("res://Bullets.tscn")
-var DEATH_BOX = preload("res://death_box.tscn")
+var DeathboxDamage = 1
 @export var parent = Node2D
 
 @onready var testbale_for_thing = $"CanvasLayer/Testbale for thing"
@@ -63,12 +64,10 @@ func _process(delta):
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
 	RunDamage()
-	handleShoot()
+	handleWeapons()
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
 	HandleTopDownMoveMent(delta)
-	handleAtack()
-	
 	
 		
 func HandleTopDownMoveMent(poop):
@@ -240,7 +239,7 @@ func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):
 		InRangeWithEnemy = false
 	
-func handleShoot():
+func handleWeapons():
 	var target = get_global_mouse_position()
 	if Input.is_action_pressed("Attack") && Shootingtimer.time_left <= 0.1 && ItemInHand == 4:
 		Shootingtimer.stop()
@@ -249,10 +248,10 @@ func handleShoot():
 		bullet.target = target
 		get_tree().root.add_child(bullet)
 		Shootingtimer.start(time_to_shoot)
-		
-func handleAtack():
 	if Input.is_action_pressed("Attack") && Shootingtimer.time_left <= 0.1 && ItemInHand == 1:
-		var killingbox = DEATH_BOX.instantiate()
-		get_tree().root.add_child(killingbox)
+		death_box.disabled = false
+		await get_tree().create_timer(0.1).timeout
+		death_box.disabled = true
+	
 
 	
