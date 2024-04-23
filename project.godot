@@ -18,8 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-Global="*res://Global.gd"
-Singal="*res://Scirpts/Singal.gd"
 
 [display]
 
@@ -98,7 +96,7 @@ Attack={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://NPC_1.dialogue")
+locale/translations_pot_files=PackedStringArray("res://NPC_1.dialogue", "res://Player.dialogue")
 
 [layer_names]
 
