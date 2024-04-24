@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ciyforw5yewet"
+path="res://.godot/imported/Car Crash.mp3-4ae2d1052d070c91579c436431244a1b.mp3str"
+
+[deps]
+
+source_file="res://TUH Audio/Car Crash.mp3"
+dest_files=["res://.godot/imported/Car Crash.mp3-4ae2d1052d070c91579c436431244a1b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

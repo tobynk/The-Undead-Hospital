@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxqaen3k0a01t"
+path="res://.godot/imported/Saw Pick up.wav-5a17bf3454abea83ad54a155373d9376.sample"
+
+[deps]
+
+source_file="res://TUH Audio/Saw Pick up.wav"
+dest_files=["res://.godot/imported/Saw Pick up.wav-5a17bf3454abea83ad54a155373d9376.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

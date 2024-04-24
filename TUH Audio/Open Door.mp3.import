@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bq3to2c5du3g5"
+path="res://.godot/imported/Open Door.mp3-7168762ca36cf8255ac360dcb5d59432.mp3str"
+
+[deps]
+
+source_file="res://TUH Audio/Open Door.mp3"
+dest_files=["res://.godot/imported/Open Door.mp3-7168762ca36cf8255ac360dcb5d59432.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
