@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cpac5002x0vh3"
+path="res://.godot/imported/Button Click.mp3-855739f942f2df462e8e0ebad7e20c1f.mp3str"
+
+[deps]
+
+source_file="res://TUH Audio/Button Click.mp3"
+dest_files=["res://.godot/imported/Button Click.mp3-855739f942f2df462e8e0ebad7e20c1f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

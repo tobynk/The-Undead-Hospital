@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwpccn1c46bjl"
+path="res://.godot/imported/Platformer.mp3-2429d43c9c8d8838a716431916af6589.mp3str"
+
+[deps]
+
+source_file="res://TUH Audio/Platformer.mp3"
+dest_files=["res://.godot/imported/Platformer.mp3-2429d43c9c8d8838a716431916af6589.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

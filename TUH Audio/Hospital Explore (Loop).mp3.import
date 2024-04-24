@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmwaiacwwreif"
+path="res://.godot/imported/Hospital Explore (Loop).mp3-46019787354a250be3bf8c05c5bc5c5e.mp3str"
+
+[deps]
+
+source_file="res://TUH Audio/Hospital Explore (Loop).mp3"
+dest_files=["res://.godot/imported/Hospital Explore (Loop).mp3-46019787354a250be3bf8c05c5bc5c5e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

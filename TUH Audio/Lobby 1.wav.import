@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://yw3jbd08sdqa"
+path="res://.godot/imported/Lobby 1.wav-30828e0443d5159e280d8ebf6c0dcfa9.sample"
+
+[deps]
+
+source_file="res://TUH Audio/Lobby 1.wav"
+dest_files=["res://.godot/imported/Lobby 1.wav-30828e0443d5159e280d8ebf6c0dcfa9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
