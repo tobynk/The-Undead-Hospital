@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cenf63v5qnwvg"]
+[gd_scene load_steps=8 format=3 uid="uid://dugjtuymggaor"]
 
 [ext_resource type="Texture2D" uid="uid://da0igshs72h1y" path="res://TileMaps/HallwayTileMap--Sheet-export.png" id="1_8hqp7"]
 [ext_resource type="Texture2D" uid="uid://c6k6yrr1tuuxj" path="res://TileMaps/PlatformTileMap-export.png" id="2_bfitm"]

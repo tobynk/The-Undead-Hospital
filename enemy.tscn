@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ceih4rp2ml5ov" path="res://Pixel Art/monsterswalkcycle-Sheet.png" id="2_btr7i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gj8k"]
-size = Vector2(130, 127)
+size = Vector2(88, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sp8bl"]
 size = Vector2(165, 159)
@@ -80,7 +80,7 @@ wall_min_slide_angle = 0.0
 script = ExtResource("1_sbj4k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1.5)
+position = Vector2(2.08165e-12, 2.08165e-12)
 shape = SubResource("RectangleShape2D_1gj8k")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -91,6 +91,7 @@ wait_time = 0.5
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Enemy"]]
 position = Vector2(2.08165e-12, 2.08165e-12)

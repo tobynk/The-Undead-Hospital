@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cthmygvk87h6h"]
+[gd_scene load_steps=8 format=3 uid="uid://cthmygvk87h6h"]
 
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
 [ext_resource type="PackedScene" uid="uid://d3kncurjapstq" path="res://npc_1.tscn" id="2_1ifw0"]
+[ext_resource type="PackedScene" uid="uid://cw3wjvkx34qie" path="res://lobby_tile_map.tscn" id="2_176l5"]
 [ext_resource type="PackedScene" uid="uid://04ndx7lh4g2a" path="res://hearts.tscn" id="2_wh1ol"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_f7qdh"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
@@ -10,15 +11,18 @@
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
 
+[node name="LobbyTileMap" parent="." instance=ExtResource("2_176l5")]
+
 [node name="Hearts3" parent="." instance=ExtResource("2_wh1ol")]
 position = Vector2(1521, 1837)
 scale = Vector2(0.01, 0.01)
 
 [node name="Player" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("1_yb42f")]
+position = Vector2(-1473, 879)
 parent = NodePath("..")
 
 [node name="NPC 1" parent="." instance=ExtResource("2_1ifw0")]
-position = Vector2(1651, 286)
+position = Vector2(1752, 254)
 
 [node name="NPC 2" parent="." instance=ExtResource("2_1ifw0")]
 position = Vector2(318, 383)
@@ -28,11 +32,11 @@ position = Vector2(2167, 747)
 player = NodePath("../Player")
 
 [node name="Weapons" parent="." instance=ExtResource("4_rusj4")]
-position = Vector2(1112, 693)
+position = Vector2(875, 271)
 Weapon = 2
 
 [node name="Weapons2" parent="." instance=ExtResource("4_rusj4")]
-position = Vector2(1692, 653)
+position = Vector2(1824, 880)
 Weapon = 3
 
 [node name="Weapons3" parent="." instance=ExtResource("4_rusj4")]

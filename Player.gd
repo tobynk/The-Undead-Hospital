@@ -213,6 +213,7 @@ func  UpdateHearts():
 
 
 func _on_area_2d_area_entered(area):
+	print(area.name)
 	if area.is_in_group("Weapons"):  
 		if area.Weapon == 1:
 			HaveSyringe = true
