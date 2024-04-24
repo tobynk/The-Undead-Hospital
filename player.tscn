@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=45 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://xy1wdsw4roec" path="res://Pixel Art/FinalTopDownIdle-Sheet.png" id="6_ujyka"]
 [ext_resource type="Texture2D" uid="uid://cfdnr4xmkeq5t" path="res://Pixel Art/WASDfixedFinal..png" id="7_0bo7r"]
 [ext_resource type="Texture2D" uid="uid://bstlboei5k2hq" path="res://Pixel Art/Gun.png" id="7_bju58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m37nc"]
+size = Vector2(99, 121)
 
 [sub_resource type="LabelSettings" id="LabelSettings_4wmjl"]
 line_spacing = 10.0
@@ -241,9 +244,22 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ll0jq"]
+radius = 272.151
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdp3o"]
+size = Vector2(88, 108)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 15
 script = ExtResource("1_c3ly3")
 KillersTime = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visibility_layer = 15
+position = Vector2(0.5, 13.5)
+shape = SubResource("RectangleShape2D_m37nc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -363,7 +379,7 @@ wait_time = 5.0
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 collision_layer = 3
-collision_mask = 3
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["player"]]
 visibility_layer = 7
@@ -380,6 +396,17 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8ll5y")
 animation = &"Idle Down"
 frame_progress = 0.0419562
+
+[node name="DeathBox" type="Area2D" parent="." groups=["DeathBox"]]
+collision_mask = 15
+
+[node name="DeathBox" type="CollisionShape2D" parent="DeathBox" groups=["DeathBox"]]
+shape = SubResource("CircleShape2D_ll0jq")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("RectangleShape2D_cdp3o")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
