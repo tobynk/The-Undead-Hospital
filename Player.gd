@@ -52,11 +52,14 @@ var DeathboxDamage = 1
 var time_to_shoot = 0.5
 @export var damage = 10.0
 @onready var attack_box = $"Attack 2d/Attack Box"
-
+var Able_to_move = true
+var Story_dialogue_finish = 1
 
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()
+	wakingup()
+
 
 	
 
@@ -67,9 +70,13 @@ func _process(delta):
 	handleWeapons()
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
-	HandleTopDownMoveMent(delta)
+	if Able_to_move == true:
+		HandleTopDownMoveMent(delta)
+	UpdateDamgeFromWeapon()
 	
-		
+
+func wakingup():
+	DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
 func HandleTopDownMoveMent(poop):
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
@@ -143,13 +150,13 @@ func Update_Item_in_hand():
 		item_4.show()
 		
 func  Input_for_item_in_hand():
-	if Input.is_action_pressed("Item_1"):
+	if Input.is_action_pressed("Item_1") && HaveSyringe:
 		ItemInHand = 1
-	if Input.is_action_pressed("Item_2"):
+	if Input.is_action_pressed("Item_2") && HaveScalpel:
 		ItemInHand = 2	
-	if Input.is_action_pressed("Item_3"):
+	if Input.is_action_pressed("Item_3") && HaveBoneSaw:
 		ItemInHand = 3
-	if Input.is_action_pressed("Item_4"):
+	if Input.is_action_pressed("Item_4")&& HaveGun:
 		ItemInHand = 4
 
 func Update_Inventory_System_Item():
@@ -255,4 +262,10 @@ func handleWeapons():
 		death_box.disabled = true
 	
 
-	
+func UpdateDamgeFromWeapon():
+	if ItemInHand == 1:
+		DeathboxDamage = 5 
+	if ItemInHand == 2:
+		DeathboxDamage = 3
+	if ItemInHand == 3:
+		DeathboxDamage = 4  
