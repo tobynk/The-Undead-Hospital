@@ -22,13 +22,10 @@ extends CharacterBody2D
 
 @onready var damage_label = $Camera2D/CanvasLayer/DamageLabel
 
-@onready var hearts_level = $Camera2D/CanvasLayer/HeartsLevel
-
 @onready var killing_timer = $"Killing Timer"
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
-@onready var attack_2d = $"Attack 2d"
 @onready var death_box = $DeathBox/DeathBox
 
 
@@ -46,19 +43,17 @@ var bullets = preload("res://Bullets.tscn")
 var DeathboxDamage = 1
 @export var parent = Node2D
 
-@onready var testbale_for_thing = $"CanvasLayer/Testbale for thing"
-
 @onready var Shootingtimer = $ShootingTimer
 var time_to_shoot = 0.5
 @export var damage = 10.0
-@onready var attack_box = $"Attack 2d/Attack Box"
+
 var Able_to_move = true
 var Story_dialogue_finish = 1
 
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()
-	wakingup()
+
 
 
 	
@@ -74,9 +69,9 @@ func _process(delta):
 		HandleTopDownMoveMent(delta)
 	UpdateDamgeFromWeapon()
 	
+	
 
-func wakingup():
-	DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
+
 func HandleTopDownMoveMent(poop):
 	var velocity = Vector2.ZERO 
 	if Input.is_action_pressed("move_right"):
@@ -122,7 +117,8 @@ func HandleTopDownMoveMent(poop):
 			animated_sprite_2d.play("Idle Down")
 		if Facing == 4:
 			animated_sprite_2d.play("Idle Up")
-	position += velocity * poop
+	set_velocity(velocity)
+	move_and_slide()
 
 
 func TurnInventoryItemOff():

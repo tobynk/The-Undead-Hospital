@@ -16,8 +16,8 @@ func _physics_process(delta):
 	var Y = player.global_position.y - global_position.y
 	var Disance_to_player = sqrt((X**2)+(Y**2))
 	if player && Disance_to_player <= 1000:
-		var direction_to_player = (player.global_position - global_position).normalized()
-		velocity = direction_to_player * speed 
+		var move_to_player = (player.global_position - global_position).normalized()
+		velocity = move_to_player * speed 
 		move_and_slide()
 	else:
 		pass
