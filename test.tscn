@@ -25,7 +25,7 @@ parent = NodePath("..")
 position = Vector2(1752, 254)
 
 [node name="NPC 2" parent="." instance=ExtResource("2_1ifw0")]
-position = Vector2(318, 383)
+position = Vector2(-398, 1030)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
 position = Vector2(2167, 747)
