@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cqooi2ef4coux"
+path="res://.godot/imported/Hurt.mp3-99c4f31a321ea4b25d22c772ab96987e.mp3str"
+
+[deps]
+
+source_file="res://TUH Audio/Hurt.mp3"
+dest_files=["res://.godot/imported/Hurt.mp3-99c4f31a321ea4b25d22c772ab96987e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

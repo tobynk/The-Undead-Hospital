@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c5x4q0rssot3w"
+path="res://.godot/imported/Gun fire.ogg-30f08a73115aef524c7a1954d3dac499.oggvorbisstr"
+
+[deps]
+
+source_file="res://TUH Audio/Gun fire.ogg"
+dest_files=["res://.godot/imported/Gun fire.ogg-30f08a73115aef524c7a1954d3dac499.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
