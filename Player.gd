@@ -238,6 +238,8 @@ func _on_area_2d_area_entered(area):
 		else: 
 			Hearts += 1
 			UpdateHearts()
+	if area.is_in_group("story_line"):
+		run_daiolge(area.diaolgo_line)
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):
@@ -265,3 +267,8 @@ func UpdateDamgeFromWeapon():
 		DeathboxDamage = 3
 	if ItemInHand == 3:
 		DeathboxDamage = 4  
+
+func run_daiolge(number):
+	if number == 1:
+		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
+		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cthmygvk87h6h"]
+[gd_scene load_steps=10 format=3 uid="uid://cthmygvk87h6h"]
 
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://04ndx7lh4g2a" path="res://hearts.tscn" id="2_wh1ol"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_f7qdh"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
+[ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="8_227jh"]
+[ext_resource type="PackedScene" uid="uid://c2s2g1nwq2ijg" path="res://Story_Box.tscn" id="9_1kbwa"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
@@ -59,3 +61,17 @@ position = Vector2(2630, 834)
 scale = Vector2(0.1, 0.1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+position = Vector2(3, 5)
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1308, 945)
+scale = Vector2(3.91797, 3.76953)
+texture = ExtResource("8_227jh")
+
+[node name="Story Box" parent="." instance=ExtResource("9_1kbwa")]
+position = Vector2(-1222, 905)
+diaolgo_line = 1
