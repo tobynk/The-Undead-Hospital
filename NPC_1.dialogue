@@ -1,9 +1,8 @@
 ~ Start
-
-if Global.talked_to_NPC_1 == false
-	NPC_1: hi welcome to the hospial 
-	~talk1
-	~talk2
-	~talk3
-
+set Able_to_move = false
+NPC_1: hi welcome to the hospial 
+talk1
+talk2
+talk3
+set Able_to_move = true
 => END

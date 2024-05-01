@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2s2g1nwq2ijg"]
+
+[ext_resource type="Script" path="res://Story_Box.gd" id="1_tou6i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t2jbs"]
+radius = 187.385
+
+[node name="Story Box" type="Area2D" groups=["story_line"]]
+script = ExtResource("1_tou6i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["story_line"]]
+shape = SubResource("CircleShape2D_t2jbs")

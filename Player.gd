@@ -47,8 +47,9 @@ var DeathboxDamage = 1
 var time_to_shoot = 0.5
 @export var damage = 10.0
 
-var Able_to_move = true
+var Able_to_move = GameState.Able_to_move
 var Story_dialogue_finish = 1
+
 
 func _ready():
 	TurnInventoryItemOff()
@@ -59,6 +60,7 @@ func _ready():
 	
 
 func _process(delta):
+	var Able_to_move = GameState.Able_to_move
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
 	RunDamage()
@@ -67,6 +69,8 @@ func _process(delta):
 	Input_for_item_in_hand()
 	if Able_to_move == true:
 		HandleTopDownMoveMent(delta)
+	else:
+		just_run_ideal()
 	UpdateDamgeFromWeapon()
 	
 	
@@ -119,6 +123,19 @@ func HandleTopDownMoveMent(poop):
 			animated_sprite_2d.play("Idle Up")
 	set_velocity(velocity)
 	move_and_slide()
+	
+func just_run_ideal():
+	if Facing == 1:
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Idle Side")
+	if Facing == 2:
+		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("Idle Side")
+	if Facing == 3:
+		animated_sprite_2d.play("Idle Down")
+	if Facing == 4:
+		animated_sprite_2d.play("Idle Up")
+	
 
 
 func TurnInventoryItemOff():
@@ -238,6 +255,8 @@ func _on_area_2d_area_entered(area):
 		else: 
 			Hearts += 1
 			UpdateHearts()
+	if area.is_in_group("story_line"):
+		run_daiolge(area.diaolgo_line)
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):
@@ -265,3 +284,8 @@ func UpdateDamgeFromWeapon():
 		DeathboxDamage = 3
 	if ItemInHand == 3:
 		DeathboxDamage = 4  
+
+func run_daiolge(number):
+	if number == 1:
+		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
+		
