@@ -2,5 +2,5 @@
 set Able_to_move = false
 Huh…? What happened? Where am I?
 I was just walking on the street. Where am I?
-
+set Able_to_move = true
 => END
