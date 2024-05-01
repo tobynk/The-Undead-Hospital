@@ -61,17 +61,54 @@ position = Vector2(2630, 834)
 scale = Vector2(0.1, 0.1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 position = Vector2(3, 5)
 color = Color(0, 0, 0, 1)
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-1308, 945)
-scale = Vector2(3.91797, 3.76953)
-texture = ExtResource("8_227jh")
 
 [node name="Story Box" parent="." instance=ExtResource("9_1kbwa")]
 position = Vector2(-1222, 905)
 diaolgo_line = 1
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Lighting 1" type="PointLight2D" parent="Node"]
+position = Vector2(-1308, 945)
+scale = Vector2(3.91797, 3.76953)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 2" type="PointLight2D" parent="Node"]
+position = Vector2(665.5, 496.592)
+scale = Vector2(5.12891, 4.76881)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 3" type="PointLight2D" parent="Node"]
+position = Vector2(-349, 870)
+scale = Vector2(5.12891, 4.435)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 4" type="PointLight2D" parent="Node"]
+position = Vector2(276, 1302)
+scale = Vector2(5.12891, 4.435)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 5" type="PointLight2D" parent="Node"]
+position = Vector2(1496, 343)
+scale = Vector2(2.88672, 2.22947)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 6" type="PointLight2D" parent="Node"]
+position = Vector2(2330, 532)
+scale = Vector2(5.12891, 4.435)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 7" type="PointLight2D" parent="Node"]
+position = Vector2(3821, 561)
+scale = Vector2(5.12891, 4.435)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 8" type="PointLight2D" parent="Node"]
+position = Vector2(3329, 1190)
+scale = Vector2(5.12891, 4.435)
+texture = ExtResource("8_227jh")
