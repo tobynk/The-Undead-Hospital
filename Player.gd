@@ -54,6 +54,7 @@ var is_platformer = true
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity_scale = 1
+var jump_velocity = -300
 
 func _ready():
 	TurnInventoryItemOff()
@@ -64,6 +65,7 @@ func _ready():
 	
 
 func _process(delta):
+	print(velocity.y)
 	var Able_to_move = GameState.Able_to_move
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
@@ -76,42 +78,27 @@ func _process(delta):
 	if Able_to_move == false:
 		just_run_ideal()
 	if Able_to_move == true && is_platformer == true:
-		HandlePlatformerMovement(delta)
+		var direction = Input.get_axis("move_left", "move_right")
+		if direction:
+			velocity.x = direction * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
 		apply_gravity(delta)
+		handle_jump()
+		move_and_slide()
 	UpdateDamgeFromWeapon()
 	
 	
-func HandlePlatformerMovement(delta):
-	var velocity = Vector2.ZERO 
-	if Input.is_action_pressed("move_right"):
-		animated_sprite_2d.flip_h = false
-		animated_sprite_2d.play("Walking_side")
-		Facing = 1
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		animated_sprite_2d.flip_h = true
-		animated_sprite_2d.play("Walking_side")
-		Facing = 2
-		velocity.x -= 1
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	if velocity.length() == 0:
-		if Facing == 1:
-			animated_sprite_2d.flip_h = false
-			animated_sprite_2d.play("Idle Side")
-		if Facing == 2:
-			animated_sprite_2d.flip_h = true
-			animated_sprite_2d.play("Idle Side")
-		if Facing == 3:
-			animated_sprite_2d.play("Idle Down")
-		if Facing == 4:
-			animated_sprite_2d.play("Idle Up")
-	set_velocity(velocity)
-	move_and_slide()
 
 func apply_gravity(delta):
 	velocity.y += gravity * gravity_scale * delta
+	print(velocity.y)
 
+func handle_jump():
+	if Input.is_action_pressed("Jump"):
+		print("up")
+		velocity.y = jump_velocity
+		move_and_slide()
 
 
 func HandleTopDownMoveMent(poop):

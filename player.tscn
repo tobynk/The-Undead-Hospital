@@ -251,7 +251,6 @@ radius = 272.151
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 255
 script = ExtResource("1_c3ly3")
-KillersTime = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visibility_layer = 15
@@ -397,8 +396,8 @@ one_shot = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8ll5y")
-animation = &"Idle Down"
-frame_progress = 0.0419562
+animation = &"Walking_side"
+frame_progress = 0.60358
 
 [node name="DeathBox" type="Area2D" parent="." groups=["DeathBox"]]
 collision_mask = 15
