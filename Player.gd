@@ -52,6 +52,9 @@ var Story_dialogue_finish = 1
 
 var is_platformer = true
 
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity_scale = 1
+
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()
@@ -70,10 +73,11 @@ func _process(delta):
 	Input_for_item_in_hand()
 	if Able_to_move == true && is_platformer == false:
 		HandleTopDownMoveMent(delta)
-	else:
+	if Able_to_move == false:
 		just_run_ideal()
 	if Able_to_move == true && is_platformer == true:
 		HandlePlatformerMovement(delta)
+		apply_gravity(delta)
 	UpdateDamgeFromWeapon()
 	
 	
@@ -104,7 +108,10 @@ func HandlePlatformerMovement(delta):
 			animated_sprite_2d.play("Idle Up")
 	set_velocity(velocity)
 	move_and_slide()
-	
+
+func apply_gravity(delta):
+	velocity.y += gravity * gravity_scale * delta
+
 
 
 func HandleTopDownMoveMent(poop):
