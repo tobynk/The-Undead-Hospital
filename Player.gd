@@ -50,6 +50,7 @@ var time_to_shoot = 0.5
 var Able_to_move = GameState.Able_to_move
 var Story_dialogue_finish = 1
 
+var is_platformer = true
 
 func _ready():
 	TurnInventoryItemOff()
@@ -67,12 +68,42 @@ func _process(delta):
 	handleWeapons()
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
-	if Able_to_move == true:
+	if Able_to_move == true && is_platformer == false:
 		HandleTopDownMoveMent(delta)
 	else:
 		just_run_ideal()
+	if Able_to_move == true && is_platformer == true:
+		HandlePlatformerMovement(delta)
 	UpdateDamgeFromWeapon()
 	
+	
+func HandlePlatformerMovement(delta):
+	var velocity = Vector2.ZERO 
+	if Input.is_action_pressed("move_right"):
+		animated_sprite_2d.flip_h = false
+		animated_sprite_2d.play("Walking_side")
+		Facing = 1
+		velocity.x += 1
+	if Input.is_action_pressed("move_left"):
+		animated_sprite_2d.flip_h = true
+		animated_sprite_2d.play("Walking_side")
+		Facing = 2
+		velocity.x -= 1
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+	if velocity.length() == 0:
+		if Facing == 1:
+			animated_sprite_2d.flip_h = false
+			animated_sprite_2d.play("Idle Side")
+		if Facing == 2:
+			animated_sprite_2d.flip_h = true
+			animated_sprite_2d.play("Idle Side")
+		if Facing == 3:
+			animated_sprite_2d.play("Idle Down")
+		if Facing == 4:
+			animated_sprite_2d.play("Idle Up")
+	set_velocity(velocity)
+	move_and_slide()
 	
 
 
