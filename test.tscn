@@ -129,11 +129,21 @@ scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
 [node name="Lighting 12" type="PointLight2D" parent="Node"]
-position = Vector2(583, 3188)
+position = Vector2(364, 3323)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
 [node name="Lighting 13" type="PointLight2D" parent="Node"]
 position = Vector2(3120, 504)
 scale = Vector2(5.12891, 4.435)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 14" type="PointLight2D" parent="Node"]
+position = Vector2(970, 1380)
+scale = Vector2(5.12891, 4.76881)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 15" type="PointLight2D" parent="Node"]
+position = Vector2(1088, 2753)
+scale = Vector2(5.12891, 4.76881)
 texture = ExtResource("8_227jh")
