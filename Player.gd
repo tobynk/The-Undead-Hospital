@@ -50,11 +50,13 @@ var time_to_shoot = 0.5
 var Able_to_move = GameState.Able_to_move
 var Story_dialogue_finish = 1
 
-var is_platformer = true
+var is_platformer = GameState.platformer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-var gravity_scale = 1
-var jump_velocity = -300
+var gravity_scale = 1.5
+var jump_velocity = -1000
+var Double_jump = false
+
 
 func _ready():
 	TurnInventoryItemOff()
@@ -65,7 +67,7 @@ func _ready():
 	
 
 func _process(delta):
-	print(velocity.y)
+	var is_platformer = GameState.platformer
 	var Able_to_move = GameState.Able_to_move
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
@@ -86,20 +88,28 @@ func _process(delta):
 		apply_gravity(delta)
 		handle_jump()
 		move_and_slide()
+		update_animations(direction)
 	UpdateDamgeFromWeapon()
 	
 	
 
 func apply_gravity(delta):
 	velocity.y += gravity * gravity_scale * delta
-	print(velocity.y)
 
 func handle_jump():
-	if Input.is_action_pressed("Jump"):
-		print("up")
+	if Input.is_action_pressed("Jump") && is_on_floor():
 		velocity.y = jump_velocity
 		move_and_slide()
-
+		
+func update_animations(input_axis):
+	if input_axis != 0:
+		animated_sprite_2d.flip_h = (input_axis < 0)
+		animated_sprite_2d.play("Walking_side")
+	else:
+		animated_sprite_2d.play("Idle Side")
+		
+	if not is_on_floor():
+		animated_sprite_2d.play("Jump")
 
 func HandleTopDownMoveMent(poop):
 	var velocity = Vector2.ZERO 
@@ -314,3 +324,4 @@ func run_daiolge(number):
 	if number == 1:
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
 		
+
