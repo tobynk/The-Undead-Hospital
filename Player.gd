@@ -50,11 +50,13 @@ var time_to_shoot = 0.5
 var Able_to_move = GameState.Able_to_move
 var Story_dialogue_finish = 1
 
-var is_platformer = false
+var is_platformer = GameState.platformer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity_scale = 1.5
-var jump_velocity = -700
+var jump_velocity = -1000
+var Double_jump = false
+
 
 func _ready():
 	TurnInventoryItemOff()
@@ -65,6 +67,7 @@ func _ready():
 	
 
 func _process(delta):
+	var is_platformer = GameState.platformer
 	var Able_to_move = GameState.Able_to_move
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
@@ -321,3 +324,4 @@ func run_daiolge(number):
 	if number == 1:
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
 		
+
