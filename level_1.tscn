@@ -1,13 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhv1l2f3d0ula"]
+[gd_scene load_steps=3 format=3 uid="uid://bhv1l2f3d0ula"]
 
-[ext_resource type="PackedScene" uid="uid://bflohyk6cltrp" path="res://TitleMap.tscn" id="1_8ijwv"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="2_u042h"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="3_dxrgp"]
 
 [node name="Level_1" type="Node2D"]
-
-[node name="LevelTwo" parent="." instance=ExtResource("1_8ijwv")]
-scale = Vector2(10, 10)
 
 [node name="Player" parent="." instance=ExtResource("2_u042h")]
 position = Vector2(555, -261)

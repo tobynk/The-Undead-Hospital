@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cthmygvk87h6h"]
+[gd_scene load_steps=10 format=3 uid="uid://cthmygvk87h6h"]
 
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="8_227jh"]
 [ext_resource type="PackedScene" uid="uid://c2s2g1nwq2ijg" path="res://Story_Box.tscn" id="9_1kbwa"]
-[ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="10_0c4ld"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
@@ -148,6 +147,3 @@ texture = ExtResource("8_227jh")
 position = Vector2(1088, 2753)
 scale = Vector2(5.12891, 4.76881)
 texture = ExtResource("8_227jh")
-
-[node name="Telaport" parent="." instance=ExtResource("10_0c4ld")]
-position = Vector2(3284, 825)
