@@ -1,0 +1,25 @@
+~ talk_1
+set Able_to_move = false
+Eleanor: *sob*
+
+PLAYER: Oh.. hi..Are you okay??
+
+Eleanor:  Hi.. I’m Eleanor *sniff* Are you human?
+
+PLAYER: I’d like to think so.. Why do you ask?
+
+Eleanor:  I don’t know how much time I have left. There is a disease going around and I don’t know what’s going on, but they don’t act.. Human. If you want to get out of here you need to be careful. They will hurt you.
+
+PLAYER: Hurt me? What?? I thought this was a hospital! Where are the doctors and nurses?
+
+Eleanor: I don’t know. I think they’re a part of this too. They’re all infected.
+
+PLAYER:  How do I escape??
+
+Eleanor: I don’t know. I haven’t left this corner. You’ll just have to explore the halls and find weapons to protect yourself.. Please, if you can.. Bring me with you when you leave. I’m sorry I’m too weak to go. I haven’t eaten in days. 
+
+PLAYER: I’ll come back for you, Eleanor. Thank you.
+
+Eleanor: Please live.
+set Able_to_move = true
+=> END

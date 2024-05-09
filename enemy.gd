@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var Damage = 5
 const speed = 250  # Adjust the speed as needed
-var health = 10
+var health = 30
 @export var player: Node2D
 var DistanceToPlayer = 0
 var gamestart = true
@@ -38,6 +38,7 @@ func _on_area_2d_area_entered(area):
 		print("this thing did dmag")
 		health = health - area.get_parent().damage
 	if area.is_in_group("DeathBox"):
+		print(area.get_parent().DeathboxDamage)
 		health = health - area.get_parent().DeathboxDamage
 		var pushbackForce = (global_position - area.global_position).normalized() * PUSHBACK_FORCE
 		velocity += pushbackForce 

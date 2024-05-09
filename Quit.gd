@@ -1,4 +1,4 @@
-extends Button
+extends  Control
 
 @onready var main_menu = $"../Main Menu"
 @onready var quit = $"."

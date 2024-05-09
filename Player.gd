@@ -31,8 +31,8 @@ extends CharacterBody2D
 
 var Facing =0
 
-var Hearts = 3
-var HeartsHealth = 10
+var Hearts = GameState.Hearts
+var HeartsHealth = GameState.HeartsHealth
 
 var ItemInHand = 1
 
@@ -54,11 +54,12 @@ var is_platformer = GameState.platformer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity_scale = 1.5
-var jump_velocity = -900
+var jump_velocity = -1300
 
 func _ready():
 	TurnInventoryItemOff()
 	UpdateHearts()
+	spawn_in()
 
 
 
@@ -67,6 +68,13 @@ func _ready():
 func _process(delta):
 	var is_platformer = GameState.platformer
 	var Able_to_move = GameState.Able_to_move
+	var HaveBoneSaw = GameState.HaveBoneSaw
+	var HaveGun = GameState.HaveGun
+	var HaveScalpel = GameState.HaveScalpel
+	var HaveSyringe = GameState.HaveSyringe
+	var Hearts = GameState.Hearts
+	var HeartsHealth = GameState.HeartsHealth
+	var ItemInHand = GameState.ItemInHand
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
 	RunDamage()
@@ -90,7 +98,11 @@ func _process(delta):
 	UpdateDamgeFromWeapon()
 	
 	
-
+func spawn_in():
+	Update_Item_in_hand()
+	UpdateHearts()
+	Update_Inventory_System_Item()
+	
 func apply_gravity(delta):
 	velocity.y += gravity * gravity_scale * delta
 
@@ -186,33 +198,36 @@ func Update_Item_in_hand():
 	item_2.hide()
 	item_3.hide()
 	item_4.hide()
-	if ItemInHand == 1 && HaveSyringe:
+	if ItemInHand == 1 && GameState.HaveSyringe:
 		item_1.show()
-	if ItemInHand == 2 && HaveScalpel:
+	if ItemInHand == 2 && GameState.HaveScalpel:
 		item_2.show()
-	if ItemInHand == 3 && HaveBoneSaw:
+	if ItemInHand == 3 && GameState.HaveBoneSaw:
 		item_3.show()
-	if ItemInHand == 4 && HaveGun:
+	if ItemInHand == 4 && GameState.HaveGun:
 		item_4.show()
 		
 func  Input_for_item_in_hand():
-	if Input.is_action_pressed("Item_1") && HaveSyringe:
+	if Input.is_action_pressed("Item_1") && GameState.HaveSyringe:
 		ItemInHand = 1
-	if Input.is_action_pressed("Item_2") && HaveScalpel:
-		ItemInHand = 2	
-	if Input.is_action_pressed("Item_3") && HaveBoneSaw:
+		DeathboxDamage = 5.0
+	if Input.is_action_pressed("Item_2") && GameState.HaveScalpel:
+		ItemInHand = 2
+		DeathboxDamage = 10.0
+	if Input.is_action_pressed("Item_3") && GameState.HaveBoneSaw:
 		ItemInHand = 3
-	if Input.is_action_pressed("Item_4")&& HaveGun:
+		DeathboxDamage = 15.0
+	if Input.is_action_pressed("Item_4")&& GameState.HaveGun:
 		ItemInHand = 4
 
 func Update_Inventory_System_Item():
-	if HaveBoneSaw:
+	if GameState.HaveBoneSaw:
 		bonesaw.show()
-	if  HaveGun:
+	if  GameState.HaveGun:
 		gun.show()
-	if  HaveScalpel:
+	if  GameState.HaveScalpel:
 		scaple.show()
-	if  HaveSyringe == true:
+	if  GameState.HaveSyringe == true:
 		syringe.show()
 	else:
 		return
@@ -225,13 +240,13 @@ func RunDamage():
 			killing_timer.start(KillersTime)
 		
 func LossHeart():
-	if HeartsHealth < 1:
-		Hearts -=1 
+	if GameState.HeartsHealth < 1:
+		GameState.Hearts -=1 
 		UpdateHearts()
-		HeartsHealth = 10
-	elif  Hearts == 0:
+		GameState.HeartsHealth = 10
+	elif  GameState.Hearts == 0:
 		queue_free()
-		get_tree().change_scene_to_file("res://die.tscn")
+		get_tree().change_scene_to_file("res://wdie.tscn")
 	else:
 		UpdateHearts()
 		return
@@ -239,8 +254,8 @@ func LossHeart():
 func DealDamage(DamageDelt):
 	damage_label.text = (str(DamageDelt))
 	damage_label.show()
-	if  HeartsHealth >=0:
-		HeartsHealth -=DamageDelt
+	if  GameState.HeartsHealth >=0:
+		GameState.HeartsHealth -=DamageDelt
 		LossHeart()
 	else:
 		return
@@ -270,13 +285,13 @@ func _on_area_2d_area_entered(area):
 	print(area.name)
 	if area.is_in_group("Weapons"):  
 		if area.Weapon == 1:
-			HaveSyringe = true
+			GameState.HaveSyringe = true
 		if area.Weapon == 2:
-			HaveScalpel = true
+			GameState.HaveScalpel = true
 		if area.Weapon == 3:
-			HaveBoneSaw = true
+			GameState.HaveBoneSaw = true
 		if area.Weapon == 4:
-			HaveGun = true
+			GameState.HaveGun = true
 		Update_Inventory_System_Item()
 	if area.is_in_group("Enemy"):
 		InRangeWithEnemy = true  
@@ -287,7 +302,7 @@ func _on_area_2d_area_entered(area):
 		if Hearts == 3:
 			pass
 		else: 
-			Hearts += 1
+			GameState.Hearts += 1
 			UpdateHearts()
 	if area.is_in_group("story_line"):
 		run_daiolge(area.diaolgo_line)
@@ -322,4 +337,6 @@ func UpdateDamgeFromWeapon():
 func run_daiolge(number):
 	if number == 1:
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
+		
+		
 		
