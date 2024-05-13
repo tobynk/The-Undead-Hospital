@@ -8,10 +8,10 @@ size = Vector2(130, 129)
 [node name="Telaport" type="Node2D"]
 script = ExtResource("1_757wo")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="telaport" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="telaport"]
 position = Vector2(1, -0.5)
 shape = SubResource("RectangleShape2D_scjo5")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="telaport" to="." method="_on_area_2d_area_entered"]

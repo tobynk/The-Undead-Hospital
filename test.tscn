@@ -16,7 +16,7 @@ script = ExtResource("1_knl1m")
 [node name="LobbyTileMap" parent="." instance=ExtResource("2_176l5")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("1_yb42f")]
-position = Vector2(-1211, 230)
+position = Vector2(-1298, 920)
 parent = NodePath("..")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -27,90 +27,92 @@ color = Color(0, 0, 0, 1)
 position = Vector2(-971, 265)
 diaolgo_line = 1
 
-[node name="Node" type="Node2D" parent="."]
+[node name="Lighting" type="Node2D" parent="."]
 
-[node name="Lighting 1" type="PointLight2D" parent="Node"]
+[node name="Lighting 1" type="PointLight2D" parent="Lighting"]
 position = Vector2(-1355.25, 820.5)
 scale = Vector2(3.54883, 2.13672)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 2" type="PointLight2D" parent="Node"]
+[node name="Lighting 2" type="PointLight2D" parent="Lighting"]
 position = Vector2(246, 341)
 scale = Vector2(5.12891, 4.76881)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 3" type="PointLight2D" parent="Node"]
+[node name="Lighting 3" type="PointLight2D" parent="Lighting"]
 position = Vector2(-545, 790.84)
 scale = Vector2(5.12891, 2.24094)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 4" type="PointLight2D" parent="Node"]
+[node name="Lighting 4" type="PointLight2D" parent="Lighting"]
 position = Vector2(97.7499, 1299)
 scale = Vector2(3.18555, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 5" type="PointLight2D" parent="Node"]
+[node name="Lighting 5" type="PointLight2D" parent="Lighting"]
 position = Vector2(1039, 744)
 scale = Vector2(3.63867, 4.30614)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 6" type="PointLight2D" parent="Node"]
+[node name="Lighting 6" type="PointLight2D" parent="Lighting"]
 position = Vector2(2405, 594)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 7" type="PointLight2D" parent="Node"]
-position = Vector2(3479.25, 508)
+[node name="Lighting 7" type="PointLight2D" parent="Lighting"]
+position = Vector2(3522, 535)
 scale = Vector2(5.31836, 2.00781)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 8" type="PointLight2D" parent="Node"]
+[node name="Lighting 8" type="PointLight2D" parent="Lighting"]
 position = Vector2(3329, 1190)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 9" type="PointLight2D" parent="Node"]
+[node name="Lighting 9" type="PointLight2D" parent="Lighting"]
 position = Vector2(2088, 1574.17)
 scale = Vector2(4.97852, 2.68102)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 10" type="PointLight2D" parent="Node"]
+[node name="Lighting 10" type="PointLight2D" parent="Lighting"]
 position = Vector2(374, 2278)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 11" type="PointLight2D" parent="Node"]
+[node name="Lighting 11" type="PointLight2D" parent="Lighting"]
 position = Vector2(1351, 2034)
 scale = Vector2(5.91992, 1.39063)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 12" type="PointLight2D" parent="Node"]
+[node name="Lighting 12" type="PointLight2D" parent="Lighting"]
 position = Vector2(364, 3323)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 14" type="PointLight2D" parent="Node"]
+[node name="Lighting 14" type="PointLight2D" parent="Lighting"]
 position = Vector2(951, 1452.5)
 scale = Vector2(3.53906, 3.14453)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 15" type="PointLight2D" parent="Node"]
+[node name="Lighting 15" type="PointLight2D" parent="Lighting"]
 position = Vector2(960, 3167)
 scale = Vector2(5.12891, 4.76881)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 13" type="PointLight2D" parent="Node"]
+[node name="Lighting 13" type="PointLight2D" parent="Lighting"]
 position = Vector2(1587, 629)
 scale = Vector2(4.52051, 3.76758)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 13" type="PointLight2D" parent="Node/Lighting 13"]
+[node name="Lighting 13" type="PointLight2D" parent="Lighting/Lighting 13"]
 position = Vector2(1587, 629)
 scale = Vector2(4.52051, 3.76758)
 texture = ExtResource("8_227jh")
 
-[node name="Telaport" parent="." instance=ExtResource("10_0c4ld")]
-position = Vector2(4221, 523)
+[node name="Lighting 16" type="PointLight2D" parent="Lighting"]
+position = Vector2(-1051, 297)
+scale = Vector2(3.54883, 3.31445)
+texture = ExtResource("8_227jh")
 
 [node name="Weapons" parent="." instance=ExtResource("4_rusj4")]
 position = Vector2(-860, 800)
@@ -241,3 +243,12 @@ player = NodePath("../Player")
 
 [node name="Ms_Elle" parent="." instance=ExtResource("9_5fb3y")]
 position = Vector2(83, 223)
+
+[node name="Story Box2" parent="." instance=ExtResource("9_1kbwa")]
+position = Vector2(3127, 507)
+scale = Vector2(2, 2)
+diaolgo_line = 2
+
+[node name="Telaport" parent="." instance=ExtResource("10_0c4ld")]
+position = Vector2(3879, 521)
+scale = Vector2(4, 4)

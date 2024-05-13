@@ -1,20 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhv1l2f3d0ula"]
+[gd_scene load_steps=7 format=3 uid="uid://bhv1l2f3d0ula"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_i8fvo"]
 [ext_resource type="PackedScene" uid="uid://dmd3d2xh5hgvi" path="res://tile_map.tscn" id="3_7vme7"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="3_dxrgp"]
-[ext_resource type="PackedScene" uid="uid://d3kncurjapstq" path="res://npc_1.tscn" id="4_nfgyr"]
+[ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="4_5n2il"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="5_sr6nc"]
+[ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="6_7ed0t"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_i8fvo")
 
-[node name="Weapons" parent="." instance=ExtResource("3_dxrgp")]
-position = Vector2(9507, 1201)
-Weapon = 2
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -2672.0
+offset_top = -3494.0
+offset_right = 19295.0
+offset_bottom = 3316.0
+color = Color(0, 0, 0, 1)
 
-[node name="NPC 1" parent="." instance=ExtResource("4_nfgyr")]
-position = Vector2(16112, -466)
+[node name="Weapons" parent="." instance=ExtResource("3_dxrgp")]
+position = Vector2(12770, -39)
+Weapon = 2
 
 [node name="Player" parent="." instance=ExtResource("5_sr6nc")]
 position = Vector2(188, -1462)
@@ -22,3 +27,73 @@ position = Vector2(188, -1462)
 [node name="TileMap" parent="." instance=ExtResource("3_7vme7")]
 position = Vector2(-3083, -9872)
 scale = Vector2(10, 9.99119)
+
+[node name="telaport" type="Node2D" parent="."]
+
+[node name="Telaport" parent="telaport" instance=ExtResource("4_5n2il")]
+position = Vector2(14772, 450)
+telporter = 2
+
+[node name="Telaport2" parent="telaport" instance=ExtResource("4_5n2il")]
+position = Vector2(14771, 319)
+telporter = 2
+
+[node name="Telaport3" parent="telaport" instance=ExtResource("4_5n2il")]
+position = Vector2(14775, 187)
+telporter = 2
+
+[node name="lighting" type="Node2D" parent="."]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="lighting"]
+position = Vector2(-2672, -3494)
+color = Color(0, 0, 0, 1)
+
+[node name="Lighting 1" type="PointLight2D" parent="lighting"]
+position = Vector2(344, -1439)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 2" type="PointLight2D" parent="lighting"]
+position = Vector2(2868, -1375)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 3" type="PointLight2D" parent="lighting"]
+position = Vector2(5828, -1547)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 4" type="PointLight2D" parent="lighting"]
+position = Vector2(7860, -1599)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 5" type="PointLight2D" parent="lighting"]
+position = Vector2(10876, -1515)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 6" type="PointLight2D" parent="lighting"]
+position = Vector2(12948, -1655)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 7" type="PointLight2D" parent="lighting"]
+position = Vector2(13176, -247)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 8" type="PointLight2D" parent="lighting"]
+position = Vector2(10844, -279)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 9" type="PointLight2D" parent="lighting"]
+position = Vector2(7154, -68)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")
+
+[node name="Lighting 10" type="PointLight2D" parent="lighting"]
+position = Vector2(4105, -102)
+scale = Vector2(20, 9.32)
+texture = ExtResource("6_7ed0t")

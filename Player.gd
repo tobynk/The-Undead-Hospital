@@ -16,10 +16,6 @@ extends CharacterBody2D
 @onready var item_3 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item3"
 @onready var item_4 = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Item4"
 
-@onready var hearts = $Camera2D/CanvasLayer/Hearts/Hearts
-@onready var hearts_2 = $Camera2D/CanvasLayer/Hearts/Hearts2
-@onready var hearts_3 = $Camera2D/CanvasLayer/Hearts/Hearts3
-
 @onready var damage_label = $Camera2D/CanvasLayer/DamageLabel
 
 @onready var killing_timer = $"Killing Timer"
@@ -28,11 +24,12 @@ extends CharacterBody2D
 
 @onready var death_box = $DeathBox/DeathBox
 
+@onready var health_bar = $Camera2D/CanvasLayer/HealthBar
+
 
 var Facing =0
 
-var Hearts = GameState.Hearts
-var HeartsHealth = GameState.HeartsHealth
+var Health = GameState.Hearts
 
 var ItemInHand = 1
 
@@ -58,21 +55,22 @@ var jump_velocity = -1300
 
 func _ready():
 	TurnInventoryItemOff()
-	UpdateHearts()
 	spawn_in()
+	health_bar.in_health(Health)
 
 
 
 	
 
 func _process(delta):
+	health_bar.health =Health
 	var is_platformer = GameState.platformer
 	var Able_to_move = GameState.Able_to_move
 	var HaveBoneSaw = GameState.HaveBoneSaw
 	var HaveGun = GameState.HaveGun
 	var HaveScalpel = GameState.HaveScalpel
 	var HaveSyringe = GameState.HaveSyringe
-	var Hearts = GameState.Hearts
+	var Health = GameState.Hearts
 	var HeartsHealth = GameState.HeartsHealth
 	var ItemInHand = GameState.ItemInHand
 	if InRangeWithEnemy == false:
@@ -100,7 +98,6 @@ func _process(delta):
 	
 func spawn_in():
 	Update_Item_in_hand()
-	UpdateHearts()
 	Update_Inventory_System_Item()
 	
 func apply_gravity(delta):
@@ -239,46 +236,15 @@ func RunDamage():
 			DealDamage(DamageFromEnemy)
 			killing_timer.start(KillersTime)
 		
-func LossHeart():
-	if GameState.HeartsHealth < 1:
-		GameState.Hearts -=1 
-		UpdateHearts()
-		GameState.HeartsHealth = 10
-	elif  GameState.Hearts == 0:
-		queue_free()
-		get_tree().change_scene_to_file("res://wdie.tscn")
-	else:
-		UpdateHearts()
-		return
 
 func DealDamage(DamageDelt):
 	damage_label.text = (str(DamageDelt))
 	damage_label.show()
 	if  GameState.HeartsHealth >=0:
 		GameState.HeartsHealth -=DamageDelt
-		LossHeart()
 	else:
 		return
-	LossHeart()
 
-func  UpdateHearts():
-	if Hearts ==0:
-		hearts.hide()
-		hearts_2.hide()
-		hearts_3.hide()
-	elif Hearts == 1:
-		hearts.show()
-		hearts_2.hide()
-		hearts_3.hide()
-	elif  Hearts == 2:
-		hearts.show()
-		hearts_2.show()
-		hearts_3.hide()
-	elif  Hearts == 3:
-		hearts.show()
-		hearts_2.show()
-		hearts_3.show()
-		
 
 
 func _on_area_2d_area_entered(area):
@@ -299,11 +265,10 @@ func _on_area_2d_area_entered(area):
 		killing_timer.start()
 		DealDamage(area.get_parent().Damage)
 	if area.is_in_group("Hearts"):
-		if Hearts == 3:
+		if Health == 100:
 			pass
 		else: 
-			GameState.Hearts += 1
-			UpdateHearts()
+			GameState.Hearts += 25
 	if area.is_in_group("story_line"):
 		run_daiolge(area.diaolgo_line)
 
@@ -337,6 +302,8 @@ func UpdateDamgeFromWeapon():
 func run_daiolge(number):
 	if number == 1:
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
+	if number == 2:
+		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Walking_the_right_way")
 		
 		
 		

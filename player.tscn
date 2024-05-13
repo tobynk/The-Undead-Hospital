@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
 [ext_resource type="Texture2D" uid="uid://cwewn4xjajw2w" path="res://Pixel Art/Inventory.png" id="3_2kaa1"]
 [ext_resource type="Texture2D" uid="uid://c4ystx8u7lprb" path="res://Pixel Art/Syringe.png" id="3_llwc7"]
-[ext_resource type="Texture2D" uid="uid://q6bg8mptnkyh" path="res://Pixel Art/Heart.png" id="3_mokk7"]
 [ext_resource type="Texture2D" uid="uid://cow1t6yjj12yh" path="res://Pixel Art/Scalpel.png" id="4_rnkvq"]
 [ext_resource type="Texture2D" uid="uid://dw32e2bk62srk" path="res://Pixel Art/FinalTopDown.png" id="6_8k81q"]
 [ext_resource type="Texture2D" uid="uid://l4alqjhhhq5r" path="res://Pixel Art/Saw.png" id="6_lt14b"]
@@ -13,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bs08feo52s53n" path="res://Pixel Art/Gun.png" id="7_bju58"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="9_vefoc"]
 [ext_resource type="Texture2D" uid="uid://cmporn0gnu7fc" path="res://sprite/maincharacter-Sheet 2-export.png" id="11_qowhx"]
+[ext_resource type="PackedScene" uid="uid://bbh1bxuthudqb" path="res://HealthBar.tscn" id="13_yldmn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m37nc"]
 size = Vector2(99, 121)
@@ -385,23 +385,6 @@ position = Vector2(464, -1)
 scale = Vector2(3, 3)
 texture = ExtResource("7_bju58")
 
-[node name="Hearts" type="Node" parent="Camera2D/CanvasLayer"]
-
-[node name="Hearts" type="Sprite2D" parent="Camera2D/CanvasLayer/Hearts"]
-position = Vector2(100, 100)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_mokk7")
-
-[node name="Hearts2" type="Sprite2D" parent="Camera2D/CanvasLayer/Hearts"]
-position = Vector2(300, 100)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_mokk7")
-
-[node name="Hearts3" type="Sprite2D" parent="Camera2D/CanvasLayer/Hearts"]
-position = Vector2(500, 100)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("3_mokk7")
-
 [node name="DamageLabel" type="Label" parent="Camera2D/CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -417,6 +400,10 @@ grow_vertical = 2
 size_flags_horizontal = 4
 text = "1000"
 label_settings = SubResource("LabelSettings_4wmjl")
+
+[node name="HealthBar" parent="Camera2D/CanvasLayer" instance=ExtResource("13_yldmn")]
+offset_right = 613.0
+offset_bottom = 21.0
 
 [node name="PointLight2D" type="PointLight2D" parent="Camera2D"]
 texture = ExtResource("9_vefoc")

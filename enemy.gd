@@ -10,19 +10,22 @@ var gamestart = true
 const PUSHBACK_FORCE = 20000
 
 func _physics_process(delta):
-	update_animation()
-	gamestart = $"..".gamestart
-	var X = player.global_position.x - global_position.x
-	var Y = player.global_position.y - global_position.y
-	var Disance_to_player = sqrt((X**2)+(Y**2))
-	if player && Disance_to_player <= 1000:
-		var move_to_player = (player.global_position - global_position).normalized()
-		velocity = move_to_player * speed 
-		move_and_slide()
-	else:
+	if player == null:
 		pass
-	if health <= 0:
-		queue_free()
+	else:
+		update_animation()
+		gamestart = $"..".gamestart
+		var X = player.global_position.x - global_position.x
+		var Y = player.global_position.y - global_position.y
+		var Disance_to_player = sqrt((X**2)+(Y**2))
+		if player && Disance_to_player <= 1000:
+			var move_to_player = (player.global_position - global_position).normalized()
+			velocity = move_to_player * speed 
+			move_and_slide()
+		else:
+			pass
+		if health <= 0:
+			queue_free()
 
 func take_damage(damage: int):
 	health -=damage
