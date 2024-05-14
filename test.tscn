@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
 [ext_resource type="PackedScene" uid="uid://d3kncurjapstq" path="res://npc_1.tscn" id="2_1ifw0"]
-[ext_resource type="PackedScene" uid="uid://cw3wjvkx34qie" path="res://lobby_tile_map.tscn" id="2_176l5"]
-[ext_resource type="PackedScene" uid="uid://04ndx7lh4g2a" path="res://hearts.tscn" id="2_wh1ol"]
+[ext_resource type="PackedScene" uid="uid://dhw0ewyjo3tyn" path="res://lobby_tile_map.tscn" id="2_176l5"]
+[ext_resource type="PackedScene" path="res://hearts.tscn" id="2_wh1ol"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_f7qdh"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="8_227jh"]
-[ext_resource type="PackedScene" uid="uid://c2s2g1nwq2ijg" path="res://Story_Box.tscn" id="9_1kbwa"]
-[ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="10_0c4ld"]
+[ext_resource type="PackedScene" path="res://Story_Box.tscn" id="9_1kbwa"]
+[ext_resource type="PackedScene" path="res://telaport.tscn" id="10_0c4ld"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
