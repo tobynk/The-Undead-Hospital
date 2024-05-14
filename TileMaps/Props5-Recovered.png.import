@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de3j06vseleyv"
-path="res://.godot/imported/Props5.png-62a03f513e77fe340af2779cc66f8c10.ctex"
+uid="uid://eo51h2euc44m"
+path="res://.godot/imported/Props5-Recovered.png-7da10b1c242519454898b6cf95d682e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://TileMaps/Props5.png"
-dest_files=["res://.godot/imported/Props5.png-62a03f513e77fe340af2779cc66f8c10.ctex"]
+source_file="res://TileMaps/Props5-Recovered.png"
+dest_files=["res://.godot/imported/Props5-Recovered.png-7da10b1c242519454898b6cf95d682e6.ctex"]
 
 [params]
 
