@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhv1l2f3d0ula"]
+[gd_scene load_steps=8 format=3 uid="uid://bhv1l2f3d0ula"]
 
 [ext_resource type="Script" path="res://level_1.gd" id="1_i8fvo"]
 [ext_resource type="PackedScene" uid="uid://dmd3d2xh5hgvi" path="res://tile_map.tscn" id="3_7vme7"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="4_5n2il"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="5_sr6nc"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="6_7ed0t"]
+[ext_resource type="PackedScene" uid="uid://b2s83yixdg53y" path="res://dylan.tscn" id="7_s5e1g"]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_i8fvo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -2672.0
 offset_top = -3494.0
 offset_right = 19295.0
@@ -28,21 +30,8 @@ position = Vector2(188, -1462)
 position = Vector2(-3083, -9872)
 scale = Vector2(10, 9.99119)
 
-[node name="telaport" type="Node2D" parent="."]
-
-[node name="Telaport" parent="telaport" instance=ExtResource("4_5n2il")]
-position = Vector2(14772, 450)
-telporter = 2
-
-[node name="Telaport2" parent="telaport" instance=ExtResource("4_5n2il")]
-position = Vector2(14771, 319)
-telporter = 2
-
-[node name="Telaport3" parent="telaport" instance=ExtResource("4_5n2il")]
-position = Vector2(14775, 187)
-telporter = 2
-
 [node name="lighting" type="Node2D" parent="."]
+visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="lighting"]
 position = Vector2(-2672, -3494)
@@ -97,3 +86,12 @@ texture = ExtResource("6_7ed0t")
 position = Vector2(4105, -102)
 scale = Vector2(20, 9.32)
 texture = ExtResource("6_7ed0t")
+
+[node name="Telaport" parent="." instance=ExtResource("4_5n2il")]
+position = Vector2(14873, 350)
+scale = Vector2(3, 3)
+telporter = 2
+
+[node name="Dylan" parent="." instance=ExtResource("7_s5e1g")]
+position = Vector2(14225, 247)
+scale = Vector2(0.7, 0.7)

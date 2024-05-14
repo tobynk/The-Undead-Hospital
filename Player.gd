@@ -26,7 +26,7 @@ extends CharacterBody2D
 
 @onready var health_bar = $Camera2D/CanvasLayer/HealthBar
 
-
+var Able_to_attack = false
 var Facing =0
 
 var ItemInHand = 1
@@ -41,6 +41,8 @@ var DeathboxDamage = 1
 @onready var Shootingtimer = $ShootingTimer
 var time_to_shoot = 0.5
 @export var damage = 10.0
+@onready var swoosh = $swoosh
+
 
 var Able_to_move = GameState.Able_to_move
 var Story_dialogue_finish = 1
@@ -61,6 +63,7 @@ func _ready():
 	
 
 func _process(delta):
+	print(Shootingtimer.time_left)
 	#print(Health)
 	if GameState.Health >= -1.0:
 		health_bar.health =GameState.Health
@@ -279,17 +282,21 @@ func _on_area_2d_area_exited(area):
 	
 func handleWeapons():
 	var target = get_global_mouse_position()
-	if Input.is_action_pressed("Attack") && Shootingtimer.time_left <= 0.1 && ItemInHand == 4:
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 4:
 		Shootingtimer.stop()
 		var bullet = bullets.instantiate()
 		bullet.position = self.global_position
 		bullet.target = target
 		get_tree().root.add_child(bullet)
 		Shootingtimer.start(time_to_shoot)
-	if Input.is_action_pressed("Attack") && Shootingtimer.time_left <= 0.1 && ItemInHand == 1:
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 1:
 		death_box.disabled = false
+		swoosh.show()
+		swoosh.play("swoosh")
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
+		swoosh.hide()
+	Able_to_attack = false
 	
 
 func UpdateDamgeFromWeapon():
@@ -308,3 +315,8 @@ func run_daiolge(number):
 		
 		
 		
+
+
+func _on_shooting_timer_timeout():
+	Able_to_attack = true
+	Shootingtimer.start(0.1)

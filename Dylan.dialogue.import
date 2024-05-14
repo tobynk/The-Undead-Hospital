@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://daji0i7tq1sxf"
+path="res://.godot/imported/Dylan.dialogue-3e09a395cc141c26c47c5268b1545288.tres"
+
+[deps]
+
+source_file="res://Dylan.dialogue"
+dest_files=["res://.godot/imported/Dylan.dialogue-3e09a395cc141c26c47c5268b1545288.tres"]
+
+[params]
+
+defaults=true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=59 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cfdnr4xmkeq5t" path="res://Pixel Art/WASDfixedFinal..png" id="7_0bo7r"]
 [ext_resource type="Texture2D" uid="uid://bs08feo52s53n" path="res://Pixel Art/Gun.png" id="7_bju58"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="9_vefoc"]
+[ext_resource type="Texture2D" uid="uid://b4262fgyn42mp" path="res://sprite/SwooshEffect.png" id="10_id5th"]
 [ext_resource type="Texture2D" uid="uid://cmporn0gnu7fc" path="res://sprite/maincharacter-Sheet 2-export.png" id="11_qowhx"]
 [ext_resource type="PackedScene" uid="uid://bbh1bxuthudqb" path="res://HealthBar.tscn" id="13_yldmn"]
 
@@ -23,6 +24,52 @@ font_size = 33
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51ew0"]
 size = Vector2(104, 122)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ll0jq"]
+radius = 272.151
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vk1p"]
+atlas = ExtResource("10_id5th")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo410"]
+atlas = ExtResource("10_id5th")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dg56"]
+atlas = ExtResource("10_id5th")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prvwe"]
+atlas = ExtResource("10_id5th")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa1vg"]
+atlas = ExtResource("10_id5th")
+region = Rect2(2560, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6yyom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vk1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo410")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dg56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prvwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa1vg")
+}],
+"loop": true,
+"name": &"swoosh",
+"speed": 20.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y3vqt"]
 atlas = ExtResource("6_ujyka")
@@ -293,9 +340,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ll0jq"]
-radius = 272.151
-
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 255
 script = ExtResource("1_c3ly3")
@@ -426,22 +470,28 @@ shape = SubResource("RectangleShape2D_51ew0")
 
 [node name="ShootingTimer" type="Timer" parent="."]
 process_callback = 0
-wait_time = 0.1
 one_shot = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_8ll5y")
-animation = &"Walking_side"
-frame_progress = 0.60358
+autostart = true
 
 [node name="DeathBox" type="Area2D" parent="." groups=["DeathBox"]]
-collision_layer = 17
+collision_layer = 32
 collision_mask = 255
 
 [node name="DeathBox" type="CollisionShape2D" parent="DeathBox" groups=["DeathBox"]]
 shape = SubResource("CircleShape2D_ll0jq")
 disabled = true
 
+[node name="swoosh" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_6yyom")
+animation = &"swoosh"
+frame_progress = 0.596064
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_8ll5y")
+animation = &"Walking_side"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="ShootingTimer" to="." method="_on_shooting_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cthmygvk87h6h"]
+[gd_scene load_steps=11 format=3 uid="uid://cthmygvk87h6h"]
 
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c2s2g1nwq2ijg" path="res://Story_Box.tscn" id="9_1kbwa"]
 [ext_resource type="PackedScene" uid="uid://cs5lj3p8oh0e2" path="res://ms_elle.tscn" id="9_5fb3y"]
 [ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="10_0c4ld"]
+[ext_resource type="PackedScene" uid="uid://04ndx7lh4g2a" path="res://hearts.tscn" id="10_e46tl"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
@@ -253,3 +254,7 @@ diaolgo_line = 2
 position = Vector2(3879, 521)
 scale = Vector2(4, 4)
 telporter = 1
+
+[node name="Hearts" parent="." instance=ExtResource("10_e46tl")]
+position = Vector2(2641, 438)
+scale = Vector2(0.1, 0.1)
