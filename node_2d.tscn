@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://co3pjp1tirt0k"]
+
+[ext_resource type="PackedScene" uid="uid://cw3wjvkx34qie" path="res://lobby_tile_map.tscn" id="1_a22qy"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="LobbyTileMap2" parent="." instance=ExtResource("1_a22qy")]
+
+[node name="LobbyTileMap" parent="." instance=ExtResource("1_a22qy")]
