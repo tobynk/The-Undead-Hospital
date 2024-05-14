@@ -45,7 +45,7 @@ scale = Vector2(5.12891, 2.24094)
 texture = ExtResource("8_227jh")
 
 [node name="Lighting 4" type="PointLight2D" parent="Lighting"]
-position = Vector2(97.7499, 1299)
+position = Vector2(297, 1335)
 scale = Vector2(3.18555, 4.435)
 texture = ExtResource("8_227jh")
 
@@ -252,3 +252,4 @@ diaolgo_line = 2
 [node name="Telaport" parent="." instance=ExtResource("10_0c4ld")]
 position = Vector2(3879, 521)
 scale = Vector2(4, 4)
+telporter = 1

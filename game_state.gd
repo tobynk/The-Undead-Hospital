@@ -8,6 +8,5 @@ var story = 0
 @onready var HaveGun = false
 @onready var HaveScalpel = false
 @onready var HaveSyringe = false
-var Hearts = 3
-var HeartsHealth = 10
+var Health = 100
 var ItemInHand = 1

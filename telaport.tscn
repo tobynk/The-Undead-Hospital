@@ -9,6 +9,7 @@ size = Vector2(130, 129)
 script = ExtResource("1_757wo")
 
 [node name="telaport" type="Area2D" parent="."]
+collision_layer = 248
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="telaport"]
 position = Vector2(1, -0.5)

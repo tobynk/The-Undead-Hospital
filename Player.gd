@@ -29,8 +29,6 @@ extends CharacterBody2D
 
 var Facing =0
 
-var Health = GameState.Hearts
-
 var ItemInHand = 1
 
 var InRangeWithEnemy = false
@@ -56,22 +54,24 @@ var jump_velocity = -1300
 func _ready():
 	TurnInventoryItemOff()
 	spawn_in()
-	health_bar.in_health(Health)
+	health_bar.in_health(GameState.Health)
 
 
 
 	
 
 func _process(delta):
-	health_bar.health =Health
+	#print(Health)
+	if GameState.Health >= -1:
+		health_bar.health =GameState.Health
+	if GameState.Health <= -1:
+		pass
 	var is_platformer = GameState.platformer
 	var Able_to_move = GameState.Able_to_move
 	var HaveBoneSaw = GameState.HaveBoneSaw
 	var HaveGun = GameState.HaveGun
 	var HaveScalpel = GameState.HaveScalpel
 	var HaveSyringe = GameState.HaveSyringe
-	var Health = GameState.Hearts
-	var HeartsHealth = GameState.HeartsHealth
 	var ItemInHand = GameState.ItemInHand
 	if InRangeWithEnemy == false:
 		killing_timer.stop()
@@ -238,17 +238,18 @@ func RunDamage():
 		
 
 func DealDamage(DamageDelt):
-	damage_label.text = (str(DamageDelt))
-	damage_label.show()
-	if  GameState.HeartsHealth >=0:
-		GameState.HeartsHealth -=DamageDelt
+	if  GameState.Health >=0:
+		GameState.Health -=DamageDelt
+		print(GameState.Health)
+	elif GameState.Health <=0:
+		queue_free()
+		get_tree().change_scene_to_file("res://die.tscn")
 	else:
 		return
 
 
 
 func _on_area_2d_area_entered(area):
-	print(area.name)
 	if area.is_in_group("Weapons"):  
 		if area.Weapon == 1:
 			GameState.HaveSyringe = true
@@ -262,13 +263,13 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("Enemy"):
 		InRangeWithEnemy = true  
 		DamageFromEnemy = area.get_parent().Damage
-		killing_timer.start()
+		print("die",area.get_parent().Damage)
 		DealDamage(area.get_parent().Damage)
 	if area.is_in_group("Hearts"):
-		if Health == 100:
+		if GameState.Health == 100:
 			pass
 		else: 
-			GameState.Hearts += 25
+			GameState.Health += 25
 	if area.is_in_group("story_line"):
 		run_daiolge(area.diaolgo_line)
 
