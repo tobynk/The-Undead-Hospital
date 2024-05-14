@@ -62,9 +62,9 @@ func _ready():
 
 func _process(delta):
 	#print(Health)
-	if GameState.Health >= -1:
+	if GameState.Health >= -1.0:
 		health_bar.health =GameState.Health
-	if GameState.Health <= -1:
+	if GameState.Health <= -1.0:
 		pass
 	var is_platformer = GameState.platformer
 	var Able_to_move = GameState.Able_to_move
