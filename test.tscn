@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="8_227jh"]
 [ext_resource type="PackedScene" path="res://Story_Box.tscn" id="9_1kbwa"]
-[ext_resource type="PackedScene" path="res://telaport.tscn" id="10_0c4ld"]
+[ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="10_0c4ld"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
