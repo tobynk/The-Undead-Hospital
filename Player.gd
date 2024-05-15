@@ -29,7 +29,7 @@ extends CharacterBody2D
 var Able_to_attack = false
 var Facing =0
 
-var ItemInHand = 1
+var ItemInHand = 0
 
 var InRangeWithEnemy = false
 var DamageFromEnemy= 0
@@ -63,7 +63,6 @@ func _ready():
 	
 
 func _process(delta):
-	print(Shootingtimer.time_left)
 	#print(Health)
 	if GameState.Health >= -1.0:
 		health_bar.health =GameState.Health
@@ -289,13 +288,27 @@ func handleWeapons():
 		bullet.target = target
 		get_tree().root.add_child(bullet)
 		Shootingtimer.start(time_to_shoot)
-	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 1:
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 1 && GameState.HaveSyringe:
 		death_box.disabled = false
 		swoosh.show()
 		swoosh.play("swoosh")
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
 		swoosh.hide()
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 2 && GameState.HaveScalpel:
+		death_box.disabled = false
+		swoosh.show()
+		swoosh.play("swoosh")
+		await get_tree().create_timer(0.1).timeout
+		death_box.disabled = true
+		swoosh.hide()
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 3 && GameState.HaveBoneSaw:
+		death_box.disabled = false
+		swoosh.show()
+		swoosh.play("swoosh")
+		await get_tree().create_timer(0.1).timeout
+		death_box.disabled = true
+		swoosh.hide()	
 	Able_to_attack = false
 	
 
@@ -312,7 +325,8 @@ func run_daiolge(number):
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Start")
 	if number == 2:
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Walking_the_right_way")
-		
+	if number == 3:
+		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Level_1")
 		
 		
 

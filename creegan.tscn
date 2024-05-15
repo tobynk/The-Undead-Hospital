@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwlxmbv6kal3a"]
+
+[ext_resource type="Texture2D" uid="uid://sa3pr0hg7ypw" path="res://sprite/SecurityGuardCreegan.png" id="1_itljw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h86lm"]
+atlas = ExtResource("1_itljw")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jy0s"]
+atlas = ExtResource("1_itljw")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e00xu"]
+atlas = ExtResource("1_itljw")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_emlil"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h86lm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jy0s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e00xu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Creegan" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_emlil")
+frame_progress = 0.062765

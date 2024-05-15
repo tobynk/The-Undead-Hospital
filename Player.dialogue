@@ -8,3 +8,7 @@ set Able_to_move = true
 ~ Walking_the_right_way
 This seems like the right way
 => END
+
+~ Level_1
+where am I
+=> END

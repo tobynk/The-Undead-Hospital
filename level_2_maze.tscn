@@ -1,12 +1,151 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk7hfass6wkgu"]
+[gd_scene load_steps=6 format=3 uid="uid://bk7hfass6wkgu"]
 
 [ext_resource type="PackedScene" uid="uid://cuexl260t3xoh" path="res://maze_tile_map.tscn" id="1_2150q"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="2_mm7mp"]
+[ext_resource type="PackedScene" uid="uid://cwlxmbv6kal3a" path="res://creegan.tscn" id="2_psigl"]
+[ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_m205p"]
+[ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_8oyom"]
 
 [node name="Level_2_maze" type="Node2D"]
 
 [node name="MazeTileMap" parent="." instance=ExtResource("1_2150q")]
 scale = Vector2(1, 1)
 
+[node name="Creegan" parent="." instance=ExtResource("2_psigl")]
+position = Vector2(945, 314)
+scale = Vector2(0.5, 0.5)
+
 [node name="Player" parent="." instance=ExtResource("2_mm7mp")]
 position = Vector2(3470, -569)
+
+[node name="Enemy" type="Node2D" parent="."]
+
+[node name="Enemy3" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(3111, -2015)
+
+[node name="Enemy4" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(3334, -1682)
+
+[node name="Enemy5" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1622, -2044)
+
+[node name="Enemy6" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1612, -1730)
+
+[node name="Enemy7" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1531, -1521)
+
+[node name="Enemy8" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2330, -1468)
+
+[node name="Enemy9" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(3306, -1359)
+
+[node name="Enemy10" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2797, -1992)
+
+[node name="Enemy11" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2378, -1668)
+
+[node name="Enemy12" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1431, -465)
+
+[node name="Enemy13" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1560, -351)
+
+[node name="Enemy14" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1251, -351)
+
+[node name="Enemy15" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(3220, -1207)
+
+[node name="Enemy18" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2478, -855)
+
+[node name="Enemy16" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2297, -617)
+
+[node name="Enemy17" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2311, -336)
+
+[node name="Enemy19" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(984, -1078)
+
+[node name="Enemy20" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1017, -722)
+
+[node name="Enemy21" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(984, -365)
+
+[node name="Enemy22" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(984, -22)
+
+[node name="Enemy23" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(3416, 353)
+
+[node name="Enemy24" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(3430, 502)
+
+[node name="Enemy25" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(3113, 460)
+
+[node name="Enemy26" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2887, 338)
+
+[node name="Enemy27" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2716, 537)
+
+[node name="Enemy28" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2120, 551)
+
+[node name="Enemy29" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2520, 996)
+
+[node name="Enemy30" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2346, 770)
+
+[node name="Enemy31" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2466, 1385)
+
+[node name="Enemy32" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1794, 1737)
+
+[node name="Enemy33" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1314, 465)
+
+[node name="Enemy34" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(390, 385)
+
+[node name="Enemy35" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1162, 1025)
+
+[node name="Enemy36" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(378, 625)
+
+[node name="Enemy37" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(402, 881)
+
+[node name="Enemy38" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(706, 441)
+
+[node name="Enemy39" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1386, 1409)
+
+[node name="Enemy40" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1346, 1657)
+
+[node name="Enemy41" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(1586, 1777)
+
+[node name="Enemy42" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2122, 1697)
+
+[node name="Enemy43" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2714, 1769)
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource("3_m205p")]
+position = Vector2(2368, -1873)
+
+[node name="Weapons" parent="." instance=ExtResource("4_8oyom")]
+position = Vector2(3621, -167)
+Weapon = 3
