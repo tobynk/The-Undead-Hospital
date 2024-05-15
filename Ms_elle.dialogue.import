@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bcy75qkwaxya"
+path="res://.godot/imported/Ms_elle.dialogue-7746f47c0d32f3d74348b0519299b0ff.tres"
+
+[deps]
+
+source_file="res://Ms_elle.dialogue"
+dest_files=["res://.godot/imported/Ms_elle.dialogue-7746f47c0d32f3d74348b0519299b0ff.tres"]
+
+[params]
+
+defaults=true

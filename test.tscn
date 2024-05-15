@@ -2,152 +2,259 @@
 
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
-[ext_resource type="PackedScene" uid="uid://d3kncurjapstq" path="res://npc_1.tscn" id="2_1ifw0"]
-[ext_resource type="PackedScene" uid="uid://dhw0ewyjo3tyn" path="res://lobby_tile_map.tscn" id="2_176l5"]
-[ext_resource type="PackedScene" path="res://hearts.tscn" id="2_wh1ol"]
+[ext_resource type="PackedScene" uid="uid://cw3wjvkx34qie" path="res://lobby_tile_map.tscn" id="2_176l5"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_f7qdh"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="8_227jh"]
-[ext_resource type="PackedScene" path="res://Story_Box.tscn" id="9_1kbwa"]
+[ext_resource type="PackedScene" uid="uid://c2s2g1nwq2ijg" path="res://Story_Box.tscn" id="9_1kbwa"]
+[ext_resource type="PackedScene" uid="uid://cs5lj3p8oh0e2" path="res://ms_elle.tscn" id="9_5fb3y"]
 [ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="10_0c4ld"]
+[ext_resource type="PackedScene" uid="uid://04ndx7lh4g2a" path="res://hearts.tscn" id="10_e46tl"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
 
 [node name="LobbyTileMap" parent="." instance=ExtResource("2_176l5")]
 
-[node name="Hearts3" parent="." instance=ExtResource("2_wh1ol")]
-position = Vector2(1521, 1837)
-scale = Vector2(0.01, 0.01)
-
 [node name="Player" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("1_yb42f")]
-position = Vector2(-1473, 879)
+position = Vector2(-1298, 920)
 parent = NodePath("..")
-
-[node name="NPC 1" parent="." instance=ExtResource("2_1ifw0")]
-position = Vector2(1752, 254)
-
-[node name="NPC 2" parent="." instance=ExtResource("2_1ifw0")]
-position = Vector2(318, 383)
-
-[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
-position = Vector2(2167, 747)
-player = NodePath("../Player")
-
-[node name="Weapons" parent="." instance=ExtResource("4_rusj4")]
-position = Vector2(875, 271)
-Weapon = 2
-
-[node name="Weapons2" parent="." instance=ExtResource("4_rusj4")]
-position = Vector2(1824, 880)
-Weapon = 3
-
-[node name="Weapons3" parent="." instance=ExtResource("4_rusj4")]
-position = Vector2(397, 748)
-
-[node name="Weapons4" parent="." instance=ExtResource("4_rusj4")]
-position = Vector2(-66, 864)
-Weapon = 4
-
-[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
-position = Vector2(2527, 404)
-player = NodePath("../Player")
-
-[node name="Hearts" parent="." instance=ExtResource("2_wh1ol")]
-position = Vector2(2082, 1301)
-scale = Vector2(0.1, 0.1)
-
-[node name="Hearts2" parent="." instance=ExtResource("2_wh1ol")]
-position = Vector2(2630, 834)
-scale = Vector2(0.1, 0.1)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(3, 5)
 color = Color(0, 0, 0, 1)
 
 [node name="Story Box" parent="." instance=ExtResource("9_1kbwa")]
-position = Vector2(-1222, 905)
+position = Vector2(-971, 265)
 diaolgo_line = 1
 
-[node name="Node" type="Node" parent="."]
+[node name="Lighting" type="Node2D" parent="."]
 
-[node name="Lighting 1" type="PointLight2D" parent="Node"]
-position = Vector2(-1308, 945)
-scale = Vector2(3.91797, 3.76953)
+[node name="Lighting 1" type="PointLight2D" parent="Lighting"]
+position = Vector2(-1355.25, 820.5)
+scale = Vector2(3.54883, 2.13672)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 2" type="PointLight2D" parent="Node"]
-position = Vector2(665.5, 496.592)
+[node name="Lighting 2" type="PointLight2D" parent="Lighting"]
+position = Vector2(246, 341)
 scale = Vector2(5.12891, 4.76881)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 3" type="PointLight2D" parent="Node"]
-position = Vector2(-545, 688.84)
-scale = Vector2(5.12891, 3.03781)
+[node name="Lighting 3" type="PointLight2D" parent="Lighting"]
+position = Vector2(-545, 790.84)
+scale = Vector2(5.12891, 2.24094)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 4" type="PointLight2D" parent="Node"]
-position = Vector2(276, 1302)
-scale = Vector2(5.12891, 4.435)
+[node name="Lighting 4" type="PointLight2D" parent="Lighting"]
+position = Vector2(297, 1335)
+scale = Vector2(3.18555, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 5" type="PointLight2D" parent="Node"]
-position = Vector2(1417, 595)
+[node name="Lighting 5" type="PointLight2D" parent="Lighting"]
+position = Vector2(1039, 744)
 scale = Vector2(3.63867, 4.30614)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 6" type="PointLight2D" parent="Node"]
-position = Vector2(2330, 532)
+[node name="Lighting 6" type="PointLight2D" parent="Lighting"]
+position = Vector2(2405, 594)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 7" type="PointLight2D" parent="Node"]
-position = Vector2(3821, 561)
-scale = Vector2(5.12891, 4.435)
+[node name="Lighting 7" type="PointLight2D" parent="Lighting"]
+position = Vector2(3522, 535)
+scale = Vector2(5.31836, 2.00781)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 8" type="PointLight2D" parent="Node"]
+[node name="Lighting 8" type="PointLight2D" parent="Lighting"]
 position = Vector2(3329, 1190)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 9" type="PointLight2D" parent="Node"]
-position = Vector2(2154, 1496)
-scale = Vector2(5.12891, 4.435)
+[node name="Lighting 9" type="PointLight2D" parent="Lighting"]
+position = Vector2(2088, 1574.17)
+scale = Vector2(4.97852, 2.68102)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 10" type="PointLight2D" parent="Node"]
+[node name="Lighting 10" type="PointLight2D" parent="Lighting"]
 position = Vector2(374, 2278)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 11" type="PointLight2D" parent="Node"]
-position = Vector2(1438, 1993)
-scale = Vector2(5.12891, 4.435)
+[node name="Lighting 11" type="PointLight2D" parent="Lighting"]
+position = Vector2(1351, 2034)
+scale = Vector2(5.91992, 1.39063)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 12" type="PointLight2D" parent="Node"]
+[node name="Lighting 12" type="PointLight2D" parent="Lighting"]
 position = Vector2(364, 3323)
 scale = Vector2(5.12891, 4.435)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 13" type="PointLight2D" parent="Node"]
-position = Vector2(3120, 504)
-scale = Vector2(5.12891, 4.435)
+[node name="Lighting 14" type="PointLight2D" parent="Lighting"]
+position = Vector2(951, 1452.5)
+scale = Vector2(3.53906, 3.14453)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 14" type="PointLight2D" parent="Node"]
-position = Vector2(970, 1380)
+[node name="Lighting 15" type="PointLight2D" parent="Lighting"]
+position = Vector2(960, 3167)
 scale = Vector2(5.12891, 4.76881)
 texture = ExtResource("8_227jh")
 
-[node name="Lighting 15" type="PointLight2D" parent="Node"]
-position = Vector2(1088, 2753)
-scale = Vector2(5.12891, 4.76881)
+[node name="Lighting 13" type="PointLight2D" parent="Lighting"]
+position = Vector2(1587, 629)
+scale = Vector2(4.52051, 3.76758)
 texture = ExtResource("8_227jh")
+
+[node name="Lighting 13" type="PointLight2D" parent="Lighting/Lighting 13"]
+position = Vector2(1587, 629)
+scale = Vector2(4.52051, 3.76758)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting 16" type="PointLight2D" parent="Lighting"]
+position = Vector2(-1051, 297)
+scale = Vector2(3.54883, 3.31445)
+texture = ExtResource("8_227jh")
+
+[node name="Weapons" parent="." instance=ExtResource("4_rusj4")]
+position = Vector2(-860, 800)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1042, 2997)
+player = NodePath("../Player")
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(161, 3130)
+player = NodePath("../Player")
+
+[node name="Enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1214, 3286)
+player = NodePath("../Player")
+
+[node name="Enemy4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(456, 3394)
+player = NodePath("../Player")
+
+[node name="Enemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(668, 3084)
+player = NodePath("../Player")
+
+[node name="Enemy6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(743, 3409)
+player = NodePath("../Player")
+
+[node name="Enemy7" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(900, 2781)
+player = NodePath("../Player")
+
+[node name="Enemy8" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(269, 2792)
+player = NodePath("../Player")
+
+[node name="Enemy9" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(148, 3465)
+player = NodePath("../Player")
+
+[node name="Enemy10" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1265, 3429)
+player = NodePath("../Player")
+
+[node name="Enemy11" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(911, 3199)
+player = NodePath("../Player")
+
+[node name="Enemy12" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(560, 1984)
+player = NodePath("../Player")
+
+[node name="Enemy13" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(574, 2130)
+player = NodePath("../Player")
+
+[node name="Enemy14" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(753, 2044)
+player = NodePath("../Player")
+
+[node name="Enemy15" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(916, 2073)
+player = NodePath("../Player")
+
+[node name="Enemy16" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1401, 1980)
+player = NodePath("../Player")
+
+[node name="Enemy17" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1576, 2126)
+player = NodePath("../Player")
+
+[node name="Enemy18" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1105, 2101)
+player = NodePath("../Player")
+
+[node name="Enemy19" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1209, 1991)
+player = NodePath("../Player")
+
+[node name="Enemy20" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1733, 1966)
+player = NodePath("../Player")
+
+[node name="Enemy21" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1621, 1580)
+player = NodePath("../Player")
+
+[node name="Enemy22" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(320, 2312)
+player = NodePath("../Player")
+
+[node name="Enemy23" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(2125, 1534)
+player = NodePath("../Player")
+
+[node name="Enemy24" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(472, 1970)
+player = NodePath("../Player")
+
+[node name="Enemy25" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1642, 1399)
+player = NodePath("../Player")
+
+[node name="Enemy26" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(228, 2022)
+player = NodePath("../Player")
+
+[node name="Enemy27" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(157, 2364)
+player = NodePath("../Player")
+
+[node name="Enemy28" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(2108, 1697)
+player = NodePath("../Player")
+
+[node name="Enemy29" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(237, 2481)
+player = NodePath("../Player")
+
+[node name="Enemy30" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(309, 1792)
+player = NodePath("../Player")
+
+[node name="Enemy31" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_f7qdh")]
+position = Vector2(1901, 1572)
+player = NodePath("../Player")
+
+[node name="Ms_Elle" parent="." instance=ExtResource("9_5fb3y")]
+position = Vector2(83, 223)
+
+[node name="Story Box2" parent="." instance=ExtResource("9_1kbwa")]
+position = Vector2(3127, 507)
+scale = Vector2(2, 2)
+diaolgo_line = 2
 
 [node name="Telaport" parent="." instance=ExtResource("10_0c4ld")]
-position = Vector2(3284, 825)
+position = Vector2(3879, 521)
+scale = Vector2(4, 4)
+telporter = 1
+
+[node name="Hearts" parent="." instance=ExtResource("10_e46tl")]
+position = Vector2(2641, 438)
+scale = Vector2(0.1, 0.1)

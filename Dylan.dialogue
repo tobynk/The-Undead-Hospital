@@ -1,0 +1,22 @@
+~ dylan_likes_to_talk
+set Able_to_move = false
+PLAYER: Hey buddy, are you here alone??
+Dylan: *sniffles* Who are you…
+PLAYER: I’m a survivor like you, don’t worry, I won’t hurt you. What’s your name?
+Dylan: My mom told me not to talk to strangers…I’m waiting for her to come back..
+PLAYER: Oh.. it’s okay, where did your mom go?
+Dylan: …
+PLAYER: You can’t tell me that either?
+Dylan: …Are you really human? There are so many monsters around.. *cry*
+PLAYER: I’m human, if I was a monster I would’ve eaten you up already!
+Dylan: *chuckles slightly*
+PLAYER: It’s gonna be okay, little guy.
+Dylan: …My name’s Dylan and I came to visit my grandma with my family, but then, all these strange things started happening. My mom went to go get help and my dad went to fight off these monsters to protect us. They told me to wait here with Mr. Bear, but they haven’t come back. I don’t know when they even left… *sniffle*
+PLAYER: I’m sorry, Dylan. I don’t know what happened to them either, but I’d tell you if I saw them. Do you know which way they went?
+Dylan: My mom said that the hospital exit is in this wing, but it was locked so she went to find a key. I don’t know if she found it though.. 
+PLAYER: Okay, we can go try to find it together, then. Thank you Dylan. You’ve been such a great help .
+Dylan: Can we please stick together? It’s been so scary.
+PLAYER: Of course, let’s go. 
+set Able_to_move = true
+
+=> END
