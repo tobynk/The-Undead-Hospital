@@ -10,6 +10,8 @@ var damage = 10
 
 
 func _physics_process(delta):
+	print(muder.time_left)
+	print(kills_timer)
 	if GameState.talked_to_player:
 		if player == null:
 			pass

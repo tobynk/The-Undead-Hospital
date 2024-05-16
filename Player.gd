@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var bonesaw = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/bonesaw"
 @onready var gun = $"Camera2D/CanvasLayer/VBoxContainer/HBoxContainer/Item Bar/Gun"
 
-@export var KillersTime = 1.0
+
 @onready var HaveBoneSaw = false
 @onready var HaveGun = false
 @onready var HaveScalpel = false
@@ -18,7 +18,7 @@ extends CharacterBody2D
 
 @onready var damage_label = $Camera2D/CanvasLayer/DamageLabel
 
-@onready var killing_timer = $"Killing Timer"
+
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
@@ -75,9 +75,6 @@ func _process(delta):
 	var HaveScalpel = GameState.HaveScalpel
 	var HaveSyringe = GameState.HaveSyringe
 	var ItemInHand = GameState.ItemInHand
-	if InRangeWithEnemy == false:
-		killing_timer.stop()
-	RunDamage()
 	handleWeapons()
 	Update_Item_in_hand()
 	Input_for_item_in_hand()
@@ -231,13 +228,8 @@ func Update_Inventory_System_Item():
 		return
 
 
-func RunDamage():
-	if InRangeWithEnemy:
-		if killing_timer.time_left <  0.01:
-			DealDamage(DamageFromEnemy)
-			killing_timer.start(KillersTime)
-		
 
+		
 func DealDamage(DamageDelt):
 	if  GameState.Health >=0:
 		GameState.Health -=DamageDelt
@@ -261,11 +253,6 @@ func _on_area_2d_area_entered(area):
 		if area.Weapon == 4:
 			GameState.HaveGun = true
 		Update_Inventory_System_Item()
-	if area.is_in_group("Enemy"):
-		InRangeWithEnemy = true  
-		DamageFromEnemy = area.get_parent().Damage
-		print("die",area.get_parent().Damage)
-		DealDamage(area.get_parent().Damage)
 	if area.is_in_group("Hearts"):
 		if GameState.Health == 100:
 			pass

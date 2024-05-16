@@ -87,7 +87,6 @@ shape = SubResource("RectangleShape2D_1gj8k")
 debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="." groups=["Enemy"]]
@@ -106,3 +105,4 @@ animation = &"Walking"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

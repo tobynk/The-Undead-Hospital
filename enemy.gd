@@ -8,8 +8,17 @@ var DistanceToPlayer = 0
 var gamestart = true
 @onready var animated_sprite_2d = $AnimatedSprite2D
 const PUSHBACK_FORCE = 20000
+@onready var timer = $Timer
+var kills_timer = true
+var player_in_area = false
+
 
 func _physics_process(delta):
+	if kills_timer && player_in_area:
+		player_in_area
+		player.DealDamage(Damage)
+		kills_timer = false
+		
 	if player == null:
 		pass
 	else:
@@ -46,6 +55,8 @@ func _on_area_2d_area_entered(area):
 		velocity += pushbackForce 
 		print(velocity)
 		move_and_slide()
+	if area.is_in_group("player"):	
+		player_in_area = true
 	
 func update_animation():
 	if velocity.x == 0:
@@ -56,3 +67,15 @@ func update_animation():
 	elif  velocity.x <= 5:
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("Walking")
+
+
+func _on_timer_timeout():
+	kills_timer = true
+	
+	
+ 
+
+
+func _on_area_2d_area_exited(area):
+	if area.is_in_group("player"):	
+		player_in_area = false
