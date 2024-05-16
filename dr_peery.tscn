@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://c4f4eeioyw0ub"]
+[gd_scene load_steps=33 format=3 uid="uid://c4f4eeioyw0ub"]
 
 [ext_resource type="Script" path="res://dr_peery.gd" id="1_wtf6c"]
 [ext_resource type="Texture2D" uid="uid://cj2ucbohpvslf" path="res://sprite/FinalBossAgain.png" id="2_g47qi"]
+[ext_resource type="PackedScene" uid="uid://bbh1bxuthudqb" path="res://HealthBar.tscn" id="3_adtia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjdv1"]
 atlas = ExtResource("2_g47qi")
@@ -224,12 +225,19 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_ugefn")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Boss Attack"]]
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Boss Attack"]]
 shape = SubResource("CircleShape2D_se6hi")
 
 [node name="Muder" type="Timer" parent="."]
 autostart = true
+
+[node name="HealthBar" parent="." instance=ExtResource("3_adtia")]
+offset_left = -121.0
+offset_top = -126.0
+offset_right = 119.0
+offset_bottom = -102.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

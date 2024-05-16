@@ -7,11 +7,18 @@ var kills_timer = false
 @onready var muder = $Muder
 var damage = 10
 @onready var animated_sprite_2d = $AnimatedSprite2D
+var health = 100
+@onready var health_bar = $HealthBar
 
+func _ready():
+	health_bar.in_health(health)
 
 func _physics_process(delta):
-	print(muder.time_left)
-	print(kills_timer)
+	print(health)
+	if health >= -1.0:
+		health_bar.health = health
+	else:
+		pass
 	if GameState.talked_to_player:
 		if player == null:
 			pass
@@ -28,9 +35,14 @@ func _physics_process(delta):
 	if player_in_area && kills_timer:
 		player.DealDamage(damage)
 		kills_timer = false
+	if health <= 0:
+			queue_free()
 
 func _on_area_2d_area_entered(area):
-	player_in_area = true
+	if area.is_in_group("DeathBox"):
+		health = health - (area.get_parent().DeathboxDamage)/10
+	if area.is_in_group("player"):	
+		player_in_area = true
  
 func _on_area_2d_area_exited(area):
 	player_in_area = false
