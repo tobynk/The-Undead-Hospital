@@ -63,12 +63,10 @@ func _ready():
 	
 
 func _process(delta):
-	print(Shootingtimer.time_left)
-	print(Able_to_attack)
 	#print(Health)
 	if GameState.Health >= -1.0:
 		health_bar.health =GameState.Health
-	if GameState.Health <= -1.0:
+	else:
 		pass
 	var is_platformer = GameState.platformer
 	var Able_to_move = GameState.Able_to_move

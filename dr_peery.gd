@@ -6,6 +6,7 @@ var player_in_area = false
 var kills_timer = false
 @onready var muder = $Muder
 var damage = 10
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 func _physics_process(delta):
