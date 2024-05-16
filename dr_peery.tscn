@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cm16xxixk2gqv"]
+
+[ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="1_kg36n"]
+[ext_resource type="Script" path="res://dr_peery.gd" id="1_wtf6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugefn"]
+size = Vector2(126, 129)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_se6hi"]
+radius = 149.084
+
+[node name="Dr Peery" type="CharacterBody2D"]
+script = ExtResource("1_wtf6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kg36n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ugefn")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Boss Attack"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Boss Attack"]]
+shape = SubResource("CircleShape2D_se6hi")
+
+[node name="Muder" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="timeout" from="Muder" to="." method="_on_muder_timeout"]

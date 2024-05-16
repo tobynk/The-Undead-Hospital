@@ -14,7 +14,6 @@ func _physics_process(delta):
 		pass
 	else:
 		update_animation()
-		gamestart = $"..".gamestart
 		var X = player.global_position.x - global_position.x
 		var Y = player.global_position.y - global_position.y
 		var Disance_to_player = sqrt((X**2)+(Y**2))

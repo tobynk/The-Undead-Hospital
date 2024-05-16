@@ -10,3 +10,4 @@ var story = 0
 @onready var HaveSyringe = false
 var Health = 100
 var ItemInHand = 1
+var talked_to_player = false

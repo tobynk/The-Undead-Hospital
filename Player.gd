@@ -63,6 +63,8 @@ func _ready():
 	
 
 func _process(delta):
+	print(Shootingtimer.time_left)
+	print(Able_to_attack)
 	#print(Health)
 	if GameState.Health >= -1.0:
 		health_bar.health =GameState.Health
@@ -95,7 +97,6 @@ func _process(delta):
 		handle_jump()
 		move_and_slide()
 		update_animations(direction)
-	UpdateDamgeFromWeapon()
 	
 	
 func spawn_in():
@@ -289,36 +290,33 @@ func handleWeapons():
 		get_tree().root.add_child(bullet)
 		Shootingtimer.start(time_to_shoot)
 	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 1 && GameState.HaveSyringe:
+		DeathboxDamage = 1
 		death_box.disabled = false
 		swoosh.show()
 		swoosh.play("swoosh")
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
 		swoosh.hide()
+		Able_to_attack = false
 	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 2 && GameState.HaveScalpel:
+		DeathboxDamage = 10
 		death_box.disabled = false
 		swoosh.show()
 		swoosh.play("swoosh")
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
 		swoosh.hide()
+		Able_to_attack = false
 	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 3 && GameState.HaveBoneSaw:
+		DeathboxDamage = 30
 		death_box.disabled = false
 		swoosh.show()
 		swoosh.play("swoosh")
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
 		swoosh.hide()	
-	Able_to_attack = false
+		Able_to_attack = false
 	
-
-func UpdateDamgeFromWeapon():
-	if ItemInHand == 1:
-		DeathboxDamage = 5 
-	if ItemInHand == 2:
-		DeathboxDamage = 3
-	if ItemInHand == 3:
-		DeathboxDamage = 4  
 
 func run_daiolge(number):
 	if number == 1:
@@ -327,10 +325,12 @@ func run_daiolge(number):
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Walking_the_right_way")
 	if number == 3:
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Level_1")
+	if number == 4:
+		DialogueManager.show_example_dialogue_balloon(load("res://mr.peery.dialogue"),"boss_battle")
 		
 		
 
 
 func _on_shooting_timer_timeout():
 	Able_to_attack = true
-	Shootingtimer.start(0.1)
+

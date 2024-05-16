@@ -470,7 +470,7 @@ shape = SubResource("RectangleShape2D_51ew0")
 
 [node name="ShootingTimer" type="Timer" parent="."]
 process_callback = 0
-one_shot = true
+wait_time = 0.5
 autostart = true
 
 [node name="DeathBox" type="Area2D" parent="." groups=["DeathBox"]]

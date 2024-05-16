@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://brkik3que47qf"
+path="res://.godot/imported/mr.peery.dialogue-2f74dd70f6bebcd229687daa411ef2e6.tres"
+
+[deps]
+
+source_file="res://mr.peery.dialogue"
+dest_files=["res://.godot/imported/mr.peery.dialogue-2f74dd70f6bebcd229687daa411ef2e6.tres"]
+
+[params]
+
+defaults=true

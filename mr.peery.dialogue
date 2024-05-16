@@ -1,0 +1,8 @@
+~ boss_battle
+set Able_to_move = false
+Player: who are you 
+Dr.Peery: hello patient. welcome to my world.  
+set talked_to_player = true 
+set Able_to_move = true
+
+=> END
