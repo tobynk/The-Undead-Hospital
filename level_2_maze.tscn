@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cuexl260t3xoh" path="res://maze_tile_map.tscn" id="1_2150q"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="2_mm7mp"]
-[ext_resource type="PackedScene" path="res://creegan.tscn" id="2_psigl"]
+[ext_resource type="PackedScene" uid="uid://cwlxmbv6kal3a" path="res://creegan.tscn" id="2_psigl"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_m205p"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_8oyom"]
 [ext_resource type="PackedScene" uid="uid://cm16xxixk2gqv" path="res://dr_peery.tscn" id="6_41ihw"]
@@ -21,7 +21,6 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(3470, -569)
 
 [node name="Enemy" type="Node2D" parent="."]
-visible = false
 
 [node name="Enemy3" parent="Enemy" node_paths=PackedStringArray("player") instance=ExtResource("3_m205p")]
 position = Vector2(3111, -2015)
