@@ -258,3 +258,7 @@ telporter = 1
 [node name="Hearts" parent="." instance=ExtResource("10_e46tl")]
 position = Vector2(2641, 438)
 scale = Vector2(0.1, 0.1)
+
+[node name="Weapons2" parent="." instance=ExtResource("4_rusj4")]
+position = Vector2(-646, 964)
+Weapon = 4
