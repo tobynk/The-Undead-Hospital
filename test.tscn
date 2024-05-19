@@ -1,15 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://cthmygvk87h6h"]
+[gd_scene load_steps=14 format=3 uid="uid://cthmygvk87h6h"]
 
 [ext_resource type="Script" path="res://GameEngine.gd" id="1_knl1m"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="1_yb42f"]
 [ext_resource type="PackedScene" uid="uid://cw3wjvkx34qie" path="res://lobby_tile_map.tscn" id="2_176l5"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_f7qdh"]
 [ext_resource type="PackedScene" uid="uid://oue8iwhflwby" path="res://Weapons.tscn" id="4_rusj4"]
+[ext_resource type="Script" path="res://Lighting2.gd" id="6_yk2gl"]
 [ext_resource type="Texture2D" uid="uid://dmynrcu253asu" path="res://Pixel Art/2d_lights_and_shadows_neutral_point_light.webp" id="8_227jh"]
 [ext_resource type="PackedScene" uid="uid://c2s2g1nwq2ijg" path="res://Story_Box.tscn" id="9_1kbwa"]
 [ext_resource type="PackedScene" uid="uid://cs5lj3p8oh0e2" path="res://ms_elle.tscn" id="9_5fb3y"]
 [ext_resource type="PackedScene" uid="uid://d0ne1rj1snn4c" path="res://telaport.tscn" id="10_0c4ld"]
 [ext_resource type="PackedScene" uid="uid://04ndx7lh4g2a" path="res://hearts.tscn" id="10_e46tl"]
+[ext_resource type="AudioStream" uid="uid://prqmbbh2fdhy" path="res://TUH Audio/Light Switch.mp3" id="12_dutra"]
+[ext_resource type="AudioStream" uid="uid://yw3jbd08sdqa" path="res://TUH Audio/Lobby 1.wav" id="12_exbi5"]
 
 [node name="Test" type="Node2D"]
 script = ExtResource("1_knl1m")
@@ -21,6 +24,7 @@ position = Vector2(-1298, 920)
 parent = NodePath("..")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 position = Vector2(3, 5)
 color = Color(0, 0, 0, 1)
 
@@ -29,6 +33,7 @@ position = Vector2(-971, 265)
 diaolgo_line = 1
 
 [node name="Lighting" type="Node2D" parent="."]
+visible = false
 
 [node name="Lighting 1" type="PointLight2D" parent="Lighting"]
 position = Vector2(-1355.25, 820.5)
@@ -113,6 +118,16 @@ texture = ExtResource("8_227jh")
 [node name="Lighting 16" type="PointLight2D" parent="Lighting"]
 position = Vector2(-1051, 297)
 scale = Vector2(3.54883, 3.31445)
+texture = ExtResource("8_227jh")
+
+[node name="Lighting2" type="Node2D" parent="." node_paths=PackedStringArray("player")]
+visible = false
+position = Vector2(-860, 800)
+script = ExtResource("6_yk2gl")
+player = NodePath("../Player")
+
+[node name="Lighting 16" type="PointLight2D" parent="Lighting2"]
+scale = Vector2(4, 4)
 texture = ExtResource("8_227jh")
 
 [node name="Weapons" parent="." instance=ExtResource("4_rusj4")]
@@ -262,3 +277,11 @@ scale = Vector2(0.1, 0.1)
 [node name="Weapons2" parent="." instance=ExtResource("4_rusj4")]
 position = Vector2(-646, 964)
 Weapon = 4
+
+[node name="Light Swith" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_dutra")
+autoplay = true
+
+[node name="Lobby1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_exbi5")
+autoplay = true

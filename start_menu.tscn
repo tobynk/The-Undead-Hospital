@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmdq5bnlmud56"]
+[gd_scene load_steps=4 format=3 uid="uid://cmdq5bnlmud56"]
 
 [ext_resource type="Script" path="res://start_menu.gd" id="1_e8fy5"]
+[ext_resource type="AudioStream" uid="uid://ciyforw5yewet" path="res://TUH Audio/Car Crash.mp3" id="2_jh53f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_oy8ai"]
 font_size = 170
@@ -58,6 +59,9 @@ text = "Start Game"
 custom_minimum_size = Vector2(400, 50)
 layout_mode = 2
 text = "quit"
+
+[node name="CarCash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_jh53f")
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

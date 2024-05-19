@@ -216,8 +216,8 @@ script = ExtResource("1_wtf6c")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_2emvl")
-animation = &"Walking"
-frame_progress = 0.95566
+animation = &"Start_Walking"
+frame_progress = 0.743852
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

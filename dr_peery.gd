@@ -9,17 +9,24 @@ var damage = 10
 @onready var animated_sprite_2d = $AnimatedSprite2D
 var health = 100
 @onready var health_bar = $HealthBar
-
+var able_to_attack = false
 func _ready():
 	health_bar.in_health(health)
+	animated_sprite_2d.play("Ideal")
 
 func _physics_process(delta):
-	print(health)
 	if health >= -1.0:
 		health_bar.health = health
 	else:
 		pass
 	if GameState.talked_to_player:
+		if able_to_attack:
+			pass
+		if not able_to_attack:
+			animated_sprite_2d.play("Start_Walking")
+			await get_tree().create_timer(1).timeout
+			able_to_attack = true
+	if able_to_attack:
 		if player == null:
 			pass
 		else:
@@ -29,6 +36,7 @@ func _physics_process(delta):
 			if player:
 				var move_to_player = (player.global_position - global_position).normalized()
 				velocity = move_to_player * speed 
+				animated_sprite_2d.play("Walking")
 				move_and_slide()
 			else:
 				pass

@@ -63,9 +63,9 @@ func _ready():
 	
 
 func _process(delta):
-	#print(Health)
-	if GameState.Health >= -1.0:
-		health_bar.health =GameState.Health
+	if GameState.Health >= 0:
+		if typeof(GameState.Health) == TYPE_INT:
+			health_bar.health =GameState.Health
 	else:
 		pass
 	var is_platformer = GameState.platformer
@@ -267,13 +267,12 @@ func _on_area_2d_area_exited(area):
 	
 func handleWeapons():
 	var target = get_global_mouse_position()
-	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 4:
-		Shootingtimer.stop()
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 4 && GameState.HaveGun:
 		var bullet = bullets.instantiate()
 		bullet.position = self.global_position
 		bullet.target = target
 		get_tree().root.add_child(bullet)
-		Shootingtimer.start(time_to_shoot)
+		Able_to_attack = false
 	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 1 && GameState.HaveSyringe:
 		DeathboxDamage = 1
 		death_box.disabled = false

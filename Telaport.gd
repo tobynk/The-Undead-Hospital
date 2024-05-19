@@ -7,11 +7,12 @@ extends Node2D
 
 
 func _on_area_2d_area_entered(area):
-	if telporter == 1:
-		await LevelTransition.fade_to_black()
-		get_tree().change_scene_to_file("res://level_1.tscn")
-		LevelTransition.fade_from_black()
-		GameState.platformer = true
-	if telporter == 2:
-		get_tree().change_scene_to_file("res://level_2_maze.tscn")
-		GameState.platformer = false
+	if area.is_in_group("player"):  
+		if telporter == 1:
+			await LevelTransition.fade_to_black()
+			get_tree().change_scene_to_file("res://level_1.tscn")
+			LevelTransition.fade_from_black()
+			GameState.platformer = true
+		if telporter == 2:
+			get_tree().change_scene_to_file("res://level_2_maze.tscn")
+			GameState.platformer = false
