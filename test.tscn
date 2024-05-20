@@ -24,7 +24,6 @@ position = Vector2(-1298, 920)
 parent = NodePath("..")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 position = Vector2(3, 5)
 color = Color(0, 0, 0, 1)
 
@@ -121,7 +120,6 @@ scale = Vector2(3.54883, 3.31445)
 texture = ExtResource("8_227jh")
 
 [node name="Lighting2" type="Node2D" parent="." node_paths=PackedStringArray("player")]
-visible = false
 position = Vector2(-860, 800)
 script = ExtResource("6_yk2gl")
 player = NodePath("../Player")

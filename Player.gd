@@ -62,9 +62,9 @@ func _ready():
 
 	
 
-func _process(delta):
-	if GameState.Health >= 0:
-		if typeof(GameState.Health) == TYPE_INT:
+func _process(delta): 
+	if typeof(GameState.Health) == TYPE_INT:
+		if GameState.Health >= 0:
 			health_bar.health =GameState.Health
 	else:
 		pass
