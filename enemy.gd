@@ -41,15 +41,12 @@ func take_damage(damage: int):
 
 
 func _on_area_2d_area_entered(area):
-	print(area.name)
 	if area.is_in_group("Bullet"):
 		health = health - area.get_parent().damage
 		area.get_parent().queue_free()
 	if area.is_in_group("PlayerAttackBoxs"):
-		print("this thing did dmag")
 		health = health - area.get_parent().damage
 	if area.is_in_group("DeathBox"):
-		print(area.get_parent().DeathboxDamage)
 		health = health - area.get_parent().DeathboxDamage
 		var pushbackForce = (global_position - area.global_position).normalized() * PUSHBACK_FORCE
 		velocity += pushbackForce 

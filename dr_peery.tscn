@@ -1,8 +1,9 @@
-[gd_scene load_steps=33 format=3 uid="uid://c4f4eeioyw0ub"]
+[gd_scene load_steps=34 format=3 uid="uid://c4f4eeioyw0ub"]
 
 [ext_resource type="Script" path="res://dr_peery.gd" id="1_wtf6c"]
 [ext_resource type="Texture2D" uid="uid://cj2ucbohpvslf" path="res://sprite/FinalBossAgain.png" id="2_g47qi"]
 [ext_resource type="PackedScene" uid="uid://bbh1bxuthudqb" path="res://HealthBar.tscn" id="3_adtia"]
+[ext_resource type="AudioStream" uid="uid://dnpuvwjrtvb3" path="res://TUH Audio/Saw Slicing.mp3" id="4_81s0w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mjdv1"]
 atlas = ExtResource("2_g47qi")
@@ -238,6 +239,9 @@ offset_left = -121.0
 offset_top = -126.0
 offset_right = 119.0
 offset_bottom = -102.0
+
+[node name="Saw Slicing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_81s0w")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

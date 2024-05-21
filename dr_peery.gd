@@ -12,12 +12,27 @@ var health = 100
 var able_to_attack = false
 var key = preload("res://key.tscn")
 @export var sence = Node2D
+@onready var saw_slicing = $"Saw Slicing"
+@export var lighting = Node2D
+var rng = RandomNumberGenerator.new()
+
 func _ready():
 	health_bar.in_health(health)
 	animated_sprite_2d.play("Ideal")
 
 func _physics_process(delta):
 	Bossroommanger.boss_health = health
+
+	if player == null:
+			pass
+	else:
+		var X = player.global_position.x - global_position.x
+		var Y = player.global_position.y - global_position.y
+		var Disance_to_player = sqrt((X**2)+(Y**2))
+		if Disance_to_player >= 120:
+			player_in_area = false
+		elif Disance_to_player <= 120:
+			player_in_area = true
 	if health >= -1.0:
 		health_bar.health = health
 	else:
@@ -45,19 +60,23 @@ func _physics_process(delta):
 				pass
 	if player_in_area && kills_timer:
 		player.DealDamage(damage)
+		saw_slicing.play()
 		kills_timer = false
 	if health <= 0:
 		Bossroommanger.die_boss_died = self.position
 		queue_free()
+	if	GameState.talked_to_player:
+		if lighting == null:
+			pass
+		else:
+			var Lighting_in = rng.randf_range(10, 15.0)
+			print(Lighting_in)
+			await get_tree().create_timer(Lighting_in).timeout
+			Bossroommanger.Lights = true
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("DeathBox"):
 		health = health - (area.get_parent().DeathboxDamage)/10
-	if area.is_in_group("player"):	
-		player_in_area = true
- 
-func _on_area_2d_area_exited(area):
-	player_in_area = false
 
 func _on_muder_timeout():
 	kills_timer = true

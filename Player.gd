@@ -42,6 +42,8 @@ var DeathboxDamage = 1
 var time_to_shoot = 0.5
 @export var damage = 10.0
 @onready var swoosh = $swoosh
+@onready var swooshSound = $SWOOSH
+
 
 
 var Able_to_move = GameState.Able_to_move
@@ -51,7 +53,7 @@ var is_platformer = GameState.platformer
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var gravity_scale = 1.5
-var jump_velocity = -1300
+var jump_velocity = -800
 
 func _ready():
 	TurnInventoryItemOff()
@@ -63,7 +65,6 @@ func _ready():
 	
 
 func _process(delta): 
-	print(typeof(GameState.Health))
 	if typeof(GameState.Health) == TYPE_INT:
 		if GameState.Health >= 0:
 			health_bar.health =GameState.Health
@@ -83,16 +84,17 @@ func _process(delta):
 		HandleTopDownMoveMent(delta)
 	if Able_to_move == false:
 		just_run_ideal()
-	if Able_to_move == true && is_platformer == true:
-		var direction = Input.get_axis("move_left", "move_right")
-		if direction:
-			velocity.x = direction * speed
-		else:
-			velocity.x = move_toward(velocity.x, 0, speed)
-		apply_gravity(delta)
-		handle_jump()
-		move_and_slide()
-		update_animations(direction)
+	if Able_to_move:
+		if is_platformer == true:
+			var direction = Input.get_axis("move_left", "move_right")
+			if direction:
+				velocity.x = direction * speed
+			else:
+				velocity.x = move_toward(velocity.x, 0, speed)
+			handle_jump()
+			move_and_slide()
+			update_animations(direction)
+			apply_gravity(delta)
 	
 	
 func spawn_in():
@@ -263,6 +265,7 @@ func _on_area_2d_area_entered(area):
 		run_daiolge(area.diaolgo_line)
 	if area.is_in_group("key"):
 		get_tree().change_scene_to_file("res://die.tscn")
+		queue_free()
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):
@@ -270,35 +273,38 @@ func _on_area_2d_area_exited(area):
 	
 func handleWeapons():
 	var target = get_global_mouse_position()
-	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 4 && GameState.HaveGun:
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 4 && GameState.HaveGun && GameState.Able_to_move:
 		var bullet = bullets.instantiate()
 		bullet.position = self.global_position
 		bullet.target = target
 		get_tree().root.add_child(bullet)
 		Able_to_attack = false
-	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 1 && GameState.HaveSyringe:
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 1 && GameState.HaveSyringe && GameState.Able_to_move:
 		DeathboxDamage = 1
 		death_box.disabled = false
 		swoosh.show()
 		swoosh.play("swoosh")
+		swooshSound.play()
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
 		swoosh.hide()
 		Able_to_attack = false
-	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 2 && GameState.HaveScalpel:
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 2 && GameState.HaveScalpel && GameState.Able_to_move:
 		DeathboxDamage = 10
 		death_box.disabled = false
 		swoosh.show()
 		swoosh.play("swoosh")
+		swooshSound.play()
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
 		swoosh.hide()
 		Able_to_attack = false
-	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 3 && GameState.HaveBoneSaw:
+	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 3 && GameState.HaveBoneSaw && GameState.Able_to_move:
 		DeathboxDamage = 30
 		death_box.disabled = false
 		swoosh.show()
 		swoosh.play("swoosh")
+		swooshSound.play()
 		await get_tree().create_timer(0.1).timeout
 		death_box.disabled = true
 		swoosh.hide()	
@@ -312,6 +318,7 @@ func run_daiolge(number):
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Walking_the_right_way")
 	if number == 3:
 		DialogueManager.show_example_dialogue_balloon(load("res://Player.dialogue"),"Level_1")
+		GameState.platformer = true
 	if number == 4:
 		DialogueManager.show_example_dialogue_balloon(load("res://mr.peery.dialogue"),"boss_battle")
 		

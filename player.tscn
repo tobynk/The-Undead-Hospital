@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=60 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b4262fgyn42mp" path="res://sprite/SwooshEffect.png" id="10_id5th"]
 [ext_resource type="Texture2D" uid="uid://cmporn0gnu7fc" path="res://sprite/maincharacter-Sheet 2-export.png" id="11_qowhx"]
 [ext_resource type="PackedScene" uid="uid://bbh1bxuthudqb" path="res://HealthBar.tscn" id="13_yldmn"]
+[ext_resource type="AudioStream" uid="uid://ou1urw8j6vum" path="res://TUH Audio/swing-whoosh-weapon-1-189819.mp3" id="15_r0r3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m37nc"]
 size = Vector2(99, 121)
@@ -458,7 +459,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Area2D" type="Area2D" parent="." groups=["player"]]
 collision_layer = 3
-collision_mask = 15
+collision_mask = 47
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["player"]]
 visibility_layer = 7
@@ -488,6 +489,10 @@ frame_progress = 0.596064
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_8ll5y")
 animation = &"Walking_side"
+
+[node name="SWOOSH" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_r0r3s")
+volume_db = -10.306
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
