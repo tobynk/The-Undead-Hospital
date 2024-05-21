@@ -12,4 +12,5 @@ func _process(delta):
 
 
 func _on_area_2d_area_entered(area):
-	DialogueManager.show_example_dialogue_balloon(load("res://creegan.gd"),"Creegan")
+	if area.is_in_group("player"):
+		DialogueManager.show_example_dialogue_balloon(load("res://Creegan.dialogue"),"Creegan")
