@@ -14,4 +14,4 @@ var talked_to_player = false
 
 
 func chage():
-	get_tree().change_scene_to_file("res://die.tscn")
+	get_tree().change_scene_to_file("res://Win.tscn")

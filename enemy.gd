@@ -11,6 +11,7 @@ const PUSHBACK_FORCE = 20000
 @onready var timer = $Timer
 var kills_timer = true
 var player_in_area = false
+@onready var bite = $bite
 
 
 func _physics_process(delta):
@@ -18,7 +19,7 @@ func _physics_process(delta):
 		player_in_area
 		player.DealDamage(Damage)
 		kills_timer = false
-		
+		bite.play()
 	if player == null:
 		pass
 	else:
@@ -58,10 +59,10 @@ func _on_area_2d_area_entered(area):
 func update_animation():
 	if velocity.x == 0:
 		pass
-	elif  velocity.x >= 5:
+	elif  velocity.x >= 1:
 		animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("Walking")
-	elif  velocity.x <= 5:
+	elif  velocity.x <= 1:
 		animated_sprite_2d.flip_h = false
 		animated_sprite_2d.play("Walking")
 

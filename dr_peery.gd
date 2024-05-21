@@ -54,7 +54,12 @@ func _physics_process(delta):
 			if player:
 				var move_to_player = (player.global_position - global_position).normalized()
 				velocity = move_to_player * speed 
-				animated_sprite_2d.play("Walking")
+				if  velocity.x >= 1:
+					animated_sprite_2d.flip_h = true
+					animated_sprite_2d.play("Walking")
+				elif  velocity.x <= 1:
+					animated_sprite_2d.flip_h = false
+					animated_sprite_2d.play("Walking")
 				move_and_slide()
 			else:
 				pass

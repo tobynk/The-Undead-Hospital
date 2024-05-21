@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgsv7doggbj31"]
+[gd_scene load_steps=15 format=3 uid="uid://bgsv7doggbj31"]
 
 [ext_resource type="Script" path="res://enemy.gd" id="1_sbj4k"]
 [ext_resource type="Texture2D" uid="uid://ceih4rp2ml5ov" path="res://Pixel Art/monsterswalkcycle-Sheet.png" id="2_btr7i"]
+[ext_resource type="AudioStream" uid="uid://bbrot65nd6vig" path="res://TUH Audio/Enemy bite.wav" id="3_8ac8l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1gj8k"]
 size = Vector2(88, 108)
@@ -102,6 +103,9 @@ position = Vector2(-22, 2)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_t4cgb")
 animation = &"Walking"
+
+[node name="bite" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8ac8l")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

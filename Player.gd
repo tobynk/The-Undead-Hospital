@@ -43,6 +43,7 @@ var time_to_shoot = 0.5
 @export var damage = 10.0
 @onready var swoosh = $swoosh
 @onready var swooshSound = $SWOOSH
+@onready var gunfire = $GUNFIRE
 
 
 
@@ -65,8 +66,8 @@ func _ready():
 	
 
 func _process(delta): 
-	if typeof(GameState.Health) == TYPE_INT:
-		if GameState.Health >= 0:
+	if typeof(GameState.Health) == 2:
+		if GameState.Health >= 0 && typeof(GameState.Health) == 2:
 			health_bar.health =GameState.Health
 	else:
 		pass
@@ -274,6 +275,7 @@ func _on_area_2d_area_exited(area):
 func handleWeapons():
 	var target = get_global_mouse_position()
 	if Input.is_action_pressed("Attack") && Able_to_attack && ItemInHand == 4 && GameState.HaveGun && GameState.Able_to_move:
+		gunfire.play()
 		var bullet = bullets.instantiate()
 		bullet.position = self.global_position
 		bullet.target = target

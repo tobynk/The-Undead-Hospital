@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c7cjtosq5o53"]
+[gd_scene load_steps=61 format=3 uid="uid://c7cjtosq5o53"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_c3ly3"]
 [ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="2_c4x42"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cmporn0gnu7fc" path="res://sprite/maincharacter-Sheet 2-export.png" id="11_qowhx"]
 [ext_resource type="PackedScene" uid="uid://bbh1bxuthudqb" path="res://HealthBar.tscn" id="13_yldmn"]
 [ext_resource type="AudioStream" uid="uid://ou1urw8j6vum" path="res://TUH Audio/swing-whoosh-weapon-1-189819.mp3" id="15_r0r3s"]
+[ext_resource type="AudioStream" uid="uid://c5x4q0rssot3w" path="res://TUH Audio/Gun fire.ogg" id="16_tgduc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m37nc"]
 size = Vector2(99, 121)
@@ -493,6 +494,10 @@ animation = &"Walking_side"
 [node name="SWOOSH" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_r0r3s")
 volume_db = -10.306
+
+[node name="GUNFIRE" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_tgduc")
+volume_db = -5.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
