@@ -17,6 +17,7 @@ func _ready():
 	animated_sprite_2d.play("Ideal")
 
 func _physics_process(delta):
+	Bossroommanger.boss_health = health
 	if health >= -1.0:
 		health_bar.health = health
 	else:
@@ -46,9 +47,8 @@ func _physics_process(delta):
 		player.DealDamage(damage)
 		kills_timer = false
 	if health <= 0:
-			var key = key.instantiate()
-			sence.root.add_child(key)
-			queue_free()
+		Bossroommanger.die_boss_died = self.position
+		queue_free()
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("DeathBox"):

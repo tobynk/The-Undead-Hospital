@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bk7hfass6wkgu"]
+[gd_scene load_steps=9 format=3 uid="uid://bk7hfass6wkgu"]
 
 [ext_resource type="PackedScene" uid="uid://cuexl260t3xoh" path="res://maze_tile_map.tscn" id="1_2150q"]
+[ext_resource type="Script" path="res://scripts/level_2_maze.gd" id="1_dyn2x"]
 [ext_resource type="PackedScene" uid="uid://c7cjtosq5o53" path="res://player.tscn" id="2_mm7mp"]
 [ext_resource type="PackedScene" uid="uid://cwlxmbv6kal3a" path="res://creegan.tscn" id="2_psigl"]
 [ext_resource type="PackedScene" uid="uid://bgsv7doggbj31" path="res://enemy.tscn" id="3_m205p"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c2s2g1nwq2ijg" path="res://Story_Box.tscn" id="7_jmq7r"]
 
 [node name="Level_2_maze" type="Node2D"]
+script = ExtResource("1_dyn2x")
 
 [node name="MazeTileMap" parent="." instance=ExtResource("1_2150q")]
 scale = Vector2(1, 1)
@@ -202,3 +204,7 @@ sence = NodePath("..")
 [node name="Story Box" parent="." instance=ExtResource("7_jmq7r")]
 position = Vector2(3261, 414)
 diaolgo_line = 4
+
+[node name="Weapons2" parent="." instance=ExtResource("4_8oyom")]
+position = Vector2(835, 727)
+Weapon = 4

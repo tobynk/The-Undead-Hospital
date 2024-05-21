@@ -63,6 +63,7 @@ func _ready():
 	
 
 func _process(delta): 
+	print(typeof(GameState.Health))
 	if typeof(GameState.Health) == TYPE_INT:
 		if GameState.Health >= 0:
 			health_bar.health =GameState.Health
@@ -235,8 +236,8 @@ func DealDamage(DamageDelt):
 		GameState.Health -=DamageDelt
 		print(GameState.Health)
 	elif GameState.Health <=0:
-		queue_free()
 		get_tree().change_scene_to_file("res://die.tscn")
+		queue_free()
 	else:
 		return
 
@@ -260,6 +261,8 @@ func _on_area_2d_area_entered(area):
 			GameState.Health += 25
 	if area.is_in_group("story_line"):
 		run_daiolge(area.diaolgo_line)
+	if area.is_in_group("key"):
+		get_tree().change_scene_to_file("res://die.tscn")
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Enemy"):

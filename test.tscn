@@ -272,10 +272,6 @@ telporter = 1
 position = Vector2(2641, 438)
 scale = Vector2(0.1, 0.1)
 
-[node name="Weapons2" parent="." instance=ExtResource("4_rusj4")]
-position = Vector2(-646, 964)
-Weapon = 4
-
 [node name="Light Swith" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_dutra")
 autoplay = true
