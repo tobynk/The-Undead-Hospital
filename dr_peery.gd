@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var player: Node2D
-const speed = 250
+const speed = 300
 var player_in_area = false
 var kills_timer = false
 @onready var muder = $Muder

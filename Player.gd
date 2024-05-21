@@ -264,7 +264,7 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("story_line"):
 		run_daiolge(area.diaolgo_line)
 	if area.is_in_group("key"):
-		get_tree().change_scene_to_file("res://die.tscn")
+		GameState.chage()
 		queue_free()
 
 func _on_area_2d_area_exited(area):
