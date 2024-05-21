@@ -1,6 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkr3ux35t3jyq"]
+[gd_scene load_steps=10 format=3 uid="uid://dkr3ux35t3jyq"]
 
-[ext_resource type="Texture2D" uid="uid://cwa13ksflcdws" path="res://icon.svg" id="1_sfckb"]
+[ext_resource type="Texture2D" uid="uid://bbtbmdu7skt0l" path="res://keyfinal 2.png" id="1_eesc7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c038h"]
+atlas = ExtResource("1_eesc7")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v42yp"]
+atlas = ExtResource("1_eesc7")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oni6b"]
+atlas = ExtResource("1_eesc7")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf2gx"]
+atlas = ExtResource("1_eesc7")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfiax"]
+atlas = ExtResource("1_eesc7")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pijpx"]
+atlas = ExtResource("1_eesc7")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_718mm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c038h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v42yp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oni6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf2gx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfiax")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pijpx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04hqe"]
 
@@ -8,8 +58,10 @@
 collision_layer = 32
 collision_mask = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["key"]]
-texture = ExtResource("1_sfckb")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." groups=["key"]]
+position = Vector2(29, 14)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_718mm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["key"]]
 scale = Vector2(7, 7)

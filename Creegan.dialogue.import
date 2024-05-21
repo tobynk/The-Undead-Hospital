@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://ckv7p8eynjkfg"
+path="res://.godot/imported/Creegan.dialogue-52c38cb47f9671758f822d3a797af4f1.tres"
+
+[deps]
+
+source_file="res://Creegan.dialogue"
+dest_files=["res://.godot/imported/Creegan.dialogue-52c38cb47f9671758f822d3a797af4f1.tres"]
+
+[params]
+
+defaults=true
